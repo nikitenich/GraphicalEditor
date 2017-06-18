@@ -217,7 +217,8 @@
             this.CreateToolStripMenuItem.BackgroundImage = global::GraphicalEditor.Properties.Resources.bg_menu_items;
             this.CreateToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.CreateToolStripMenuItem.Name = "CreateToolStripMenuItem";
-            this.CreateToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.CreateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.CreateToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.CreateToolStripMenuItem.Text = "Создать";
             this.CreateToolStripMenuItem.Click += new System.EventHandler(this.CreateToolStripMenuItem_Click);
             // 
@@ -225,7 +226,8 @@
             // 
             this.OpenToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OpenToolStripMenuItem.BackgroundImage")));
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
-            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.OpenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.OpenToolStripMenuItem.Text = "Открыть";
             this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
@@ -234,7 +236,8 @@
             this.SaveToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SaveToolStripMenuItem.BackgroundImage")));
             this.SaveToolStripMenuItem.Enabled = false;
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.SaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.SaveToolStripMenuItem.Text = "Сохранить";
             this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
@@ -243,7 +246,9 @@
             this.SaveAsToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SaveAsToolStripMenuItem.BackgroundImage")));
             this.SaveAsToolStripMenuItem.Enabled = false;
             this.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem";
-            this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.SaveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.SaveAsToolStripMenuItem.Text = "Сохранить как...";
             this.SaveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
             // 
@@ -252,7 +257,8 @@
             this.EditToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditToolStripMenuItem.BackgroundImage")));
             this.EditToolStripMenuItem.Enabled = false;
             this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
-            this.EditToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.EditToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.EditToolStripMenuItem.Text = "Редактировать";
             this.EditToolStripMenuItem.Click += new System.EventHandler(this.EditToolStripMenuItem_Click);
             // 
@@ -260,7 +266,7 @@
             // 
             this.aboutToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.BackgroundImage")));
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.aboutToolStripMenuItem.Text = "О программе";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -279,7 +285,8 @@
             // 
             this.ScaleToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ScaleToolStripMenuItem.BackgroundImage")));
             this.ScaleToolStripMenuItem.Name = "ScaleToolStripMenuItem";
-            this.ScaleToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.ScaleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
+            this.ScaleToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.ScaleToolStripMenuItem.Text = "Масштаб";
             this.ScaleToolStripMenuItem.Click += new System.EventHandler(this.ScaleToolStripMenuItem_Click);
             // 
@@ -287,7 +294,8 @@
             // 
             this.RotateToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RotateToolStripMenuItem.BackgroundImage")));
             this.RotateToolStripMenuItem.Name = "RotateToolStripMenuItem";
-            this.RotateToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.RotateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.RotateToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.RotateToolStripMenuItem.Text = "Поворот";
             this.RotateToolStripMenuItem.Click += new System.EventHandler(this.RotateToolStripMenuItem_Click);
             // 
@@ -295,7 +303,8 @@
             // 
             this.ShiftToolStripMenuItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ShiftToolStripMenuItem.BackgroundImage")));
             this.ShiftToolStripMenuItem.Name = "ShiftToolStripMenuItem";
-            this.ShiftToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.ShiftToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.K)));
+            this.ShiftToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.ShiftToolStripMenuItem.Text = "Сдвиг";
             this.ShiftToolStripMenuItem.Click += new System.EventHandler(this.ShiftToolStripMenuItem_Click);
             // 
@@ -303,6 +312,7 @@
             // 
             this.PrintToolStripMenuItem.Enabled = false;
             this.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem";
+            this.PrintToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.PrintToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.PrintToolStripMenuItem.Text = "Печать";
             this.PrintToolStripMenuItem.Click += new System.EventHandler(this.PrintToolStripMenuItem_Click);
