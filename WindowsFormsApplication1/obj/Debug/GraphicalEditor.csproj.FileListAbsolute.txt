@@ -1,0 +1,57 @@
+E:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+E:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+E:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+E:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MainForm.resources
+E:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+E:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\GraphicalEditor.csproj.GenerateResource.Cache
+E:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+E:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+E:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\GraphicalEditor.csprojResolveAssemblyReference.cache
+H:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+H:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+H:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+H:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+H:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+H:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\GraphicalEditor.csprojResolveAssemblyReference.cache
+H:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MainForm.resources
+H:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+H:\ТП\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\GraphicalEditor.csproj.GenerateResource.Cache
+f:\ТП\Graphical Editor\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+f:\ТП\Graphical Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+f:\ТП\Graphical Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+f:\ТП\Graphical Editor\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+f:\ТП\Graphical Editor\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+f:\ТП\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.csprojResolveAssemblyReference.cache
+f:\ТП\Graphical Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.MainForm.resources
+f:\ТП\Graphical Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+f:\ТП\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.csproj.GenerateResource.Cache
+d:\Clouds\Yandex\Учёба\2 Курс\4 семестр\Компьютерная графика\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.csproj.GenerateResource.Cache
+d:\Clouds\Yandex\Учёба\2 Курс\4 семестр\Компьютерная графика\Graphical Editor\WindowsFormsApplication1\bin\Debug\GraphicalEditor.exe.config
+d:\Clouds\Yandex\Учёба\2 Курс\4 семестр\Компьютерная графика\Graphical Editor\WindowsFormsApplication1\bin\Debug\GraphicalEditor.exe
+d:\Clouds\Yandex\Учёба\2 Курс\4 семестр\Компьютерная графика\Graphical Editor\WindowsFormsApplication1\bin\Debug\GraphicalEditor.pdb
+d:\Clouds\Yandex\Учёба\2 Курс\4 семестр\Компьютерная графика\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.Properties.Resources.resources
+d:\Clouds\Yandex\Учёба\2 Курс\4 семестр\Компьютерная графика\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.exe
+d:\Clouds\Yandex\Учёба\2 Курс\4 семестр\Компьютерная графика\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.pdb
+D:\Clouds\Yandex\Учёба\2 Курс\4 семестр\Компьютерная графика\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.MainForm.resources
+D:\Clouds\Yandex\Учёба\2 Курс\4 семестр\Компьютерная графика\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.csprojResolveAssemblyReference.cache
+C:\Users\ilya\Desktop\Graphical Editor\WindowsFormsApplication1\bin\Debug\GraphicalEditor.exe.config
+C:\Users\ilya\Desktop\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.exe
+C:\Users\ilya\Desktop\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.pdb
+C:\Users\ilya\Desktop\Graphical Editor\WindowsFormsApplication1\bin\Debug\GraphicalEditor.exe
+C:\Users\ilya\Desktop\Graphical Editor\WindowsFormsApplication1\bin\Debug\GraphicalEditor.pdb
+C:\Users\ilya\Desktop\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.csprojResolveAssemblyReference.cache
+C:\Users\ilya\Desktop\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.MainForm.resources
+C:\Users\ilya\Desktop\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.Properties.Resources.resources
+C:\Users\ilya\Desktop\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.csproj.GenerateResource.Cache
+C:\Users\ilya\Desktop\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.AboutBox.resources
+D:\Clouds\Yandex\Учёба\2 Курс\4 семестр\Компьютерная графика\Graphical Editor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.AboutBox.resources
+C:\Users\ilya\Source\Repos\GraphicalEditor\WindowsFormsApplication1\bin\Debug\GraphicalEditor.exe.config
+C:\Users\ilya\Source\Repos\GraphicalEditor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.exe
+C:\Users\ilya\Source\Repos\GraphicalEditor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.pdb
+C:\Users\ilya\Source\Repos\GraphicalEditor\WindowsFormsApplication1\bin\Debug\GraphicalEditor.exe
+C:\Users\ilya\Source\Repos\GraphicalEditor\WindowsFormsApplication1\bin\Debug\GraphicalEditor.pdb
+C:\Users\ilya\Source\Repos\GraphicalEditor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.csprojResolveAssemblyReference.cache
+C:\Users\ilya\Source\Repos\GraphicalEditor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.AboutBox.resources
+C:\Users\ilya\Source\Repos\GraphicalEditor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.MainForm.resources
+C:\Users\ilya\Source\Repos\GraphicalEditor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.Properties.Resources.resources
+C:\Users\ilya\Source\Repos\GraphicalEditor\WindowsFormsApplication1\obj\Debug\GraphicalEditor.csproj.GenerateResource.Cache
