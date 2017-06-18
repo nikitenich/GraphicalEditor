@@ -45,14 +45,14 @@
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.izomPNL = new System.Windows.Forms.Panel();
-            this.xoyPNL = new System.Windows.Forms.Panel();
-            this.xozPNL = new System.Windows.Forms.Panel();
+            this.izomPic = new System.Windows.Forms.PictureBox();
+            this.xoyPic = new System.Windows.Forms.PictureBox();
+            this.xozPic = new System.Windows.Forms.PictureBox();
+            this.yozPic = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.yozPNL = new System.Windows.Forms.Panel();
             this.ActionTabs = new System.Windows.Forms.TabControl();
             this.ScaleTab = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -159,6 +159,10 @@
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.izomPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xoyPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xozPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yozPic)).BeginInit();
             this.ActionTabs.SuspendLayout();
             this.ScaleTab.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -326,7 +330,7 @@
             // 
             // splitContainer
             // 
-            this.splitContainer.BackColor = System.Drawing.Color.Transparent;
+            this.splitContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer.IsSplitterFixed = true;
@@ -352,14 +356,14 @@
             this.tableLayoutPanel.ColumnCount = 2;
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel.Controls.Add(this.izomPNL, 1, 2);
-            this.tableLayoutPanel.Controls.Add(this.xoyPNL, 0, 2);
-            this.tableLayoutPanel.Controls.Add(this.xozPNL, 1, 1);
+            this.tableLayoutPanel.Controls.Add(this.izomPic, 1, 2);
+            this.tableLayoutPanel.Controls.Add(this.xoyPic, 0, 2);
+            this.tableLayoutPanel.Controls.Add(this.xozPic, 1, 1);
+            this.tableLayoutPanel.Controls.Add(this.yozPic, 0, 1);
             this.tableLayoutPanel.Controls.Add(this.label4, 1, 3);
             this.tableLayoutPanel.Controls.Add(this.label3, 0, 3);
             this.tableLayoutPanel.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel.Controls.Add(this.yozPNL, 0, 1);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
@@ -371,32 +375,45 @@
             this.tableLayoutPanel.Size = new System.Drawing.Size(561, 600);
             this.tableLayoutPanel.TabIndex = 0;
             // 
-            // izomPNL
+            // izomPic
             // 
-            this.izomPNL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(238)))), ((int)(((byte)(246)))));
-            this.izomPNL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.izomPNL.Location = new System.Drawing.Point(283, 303);
-            this.izomPNL.Name = "izomPNL";
-            this.izomPNL.Size = new System.Drawing.Size(275, 274);
-            this.izomPNL.TabIndex = 11;
+            this.izomPic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(238)))), ((int)(((byte)(246)))));
+            this.izomPic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.izomPic.Location = new System.Drawing.Point(283, 303);
+            this.izomPic.Name = "izomPic";
+            this.izomPic.Size = new System.Drawing.Size(275, 274);
+            this.izomPic.TabIndex = 10;
+            this.izomPic.TabStop = false;
             // 
-            // xoyPNL
+            // xoyPic
             // 
-            this.xoyPNL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(238)))), ((int)(((byte)(246)))));
-            this.xoyPNL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xoyPNL.Location = new System.Drawing.Point(3, 303);
-            this.xoyPNL.Name = "xoyPNL";
-            this.xoyPNL.Size = new System.Drawing.Size(274, 274);
-            this.xoyPNL.TabIndex = 10;
+            this.xoyPic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(238)))), ((int)(((byte)(246)))));
+            this.xoyPic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xoyPic.Location = new System.Drawing.Point(3, 303);
+            this.xoyPic.Name = "xoyPic";
+            this.xoyPic.Size = new System.Drawing.Size(274, 274);
+            this.xoyPic.TabIndex = 9;
+            this.xoyPic.TabStop = false;
             // 
-            // xozPNL
+            // xozPic
             // 
-            this.xozPNL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(238)))), ((int)(((byte)(246)))));
-            this.xozPNL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xozPNL.Location = new System.Drawing.Point(283, 23);
-            this.xozPNL.Name = "xozPNL";
-            this.xozPNL.Size = new System.Drawing.Size(275, 274);
-            this.xozPNL.TabIndex = 9;
+            this.xozPic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(238)))), ((int)(((byte)(246)))));
+            this.xozPic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xozPic.Location = new System.Drawing.Point(283, 23);
+            this.xozPic.Name = "xozPic";
+            this.xozPic.Size = new System.Drawing.Size(275, 274);
+            this.xozPic.TabIndex = 8;
+            this.xozPic.TabStop = false;
+            // 
+            // yozPic
+            // 
+            this.yozPic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(238)))), ((int)(((byte)(246)))));
+            this.yozPic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.yozPic.Location = new System.Drawing.Point(3, 23);
+            this.yozPic.Name = "yozPic";
+            this.yozPic.Size = new System.Drawing.Size(274, 274);
+            this.yozPic.TabIndex = 3;
+            this.yozPic.TabStop = false;
             // 
             // label4
             // 
@@ -453,15 +470,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "YOZ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // yozPNL
-            // 
-            this.yozPNL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(238)))), ((int)(((byte)(246)))));
-            this.yozPNL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.yozPNL.Location = new System.Drawing.Point(3, 23);
-            this.yozPNL.Name = "yozPNL";
-            this.yozPNL.Size = new System.Drawing.Size(274, 274);
-            this.yozPNL.TabIndex = 8;
             // 
             // ActionTabs
             // 
@@ -1549,6 +1557,10 @@
             this.splitContainer.ResumeLayout(false);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.izomPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xoyPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xozPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.yozPic)).EndInit();
             this.ActionTabs.ResumeLayout(false);
             this.ScaleTab.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -1703,16 +1715,16 @@
         private System.Windows.Forms.ToolStripStatusLabel tss_SX;
         private System.Windows.Forms.ToolStripStatusLabel tss_SY;
         private System.Windows.Forms.ToolStripStatusLabel tss_SZ;
-        private System.Windows.Forms.Panel izomPNL;
-        private System.Windows.Forms.Panel xoyPNL;
-        private System.Windows.Forms.Panel xozPNL;
-        private System.Windows.Forms.Panel yozPNL;
         private System.Windows.Forms.ToolStripMenuItem CreateToolStripMenuItem;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.PictureBox yozPic;
+        private System.Windows.Forms.PictureBox izomPic;
+        private System.Windows.Forms.PictureBox xoyPic;
+        private System.Windows.Forms.PictureBox xozPic;
     }
 }
 

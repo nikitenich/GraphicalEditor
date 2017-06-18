@@ -17,11 +17,11 @@ namespace GraphicalEditor
         public MainForm()
         {
             InitializeComponent();
-            b = new Bitmap(izomPNL.ClientRectangle.Width, izomPNL.ClientRectangle.Height);
             ActionTabs.SelectTab(StartTab); //открытие специальной пустой вкладки при запуске программы
-            /*StartTab.BackColor = groupBox1.BackColor = groupBox2.BackColor = groupBox3.BackColor = CreateGroupBox.BackColor = splitContainer.Panel2.BackColor = splitContainer.Panel1.BackColor =
-                RotateTab.BackColor = ScaleTab.BackColor = menuStrip.BackColor = statusStrip.BackColor = backColor; //задаём цвет фона вкладок и так далее
-            yozPNL.BackColor = xoyPNL.BackColor = xozPNL.BackColor = izomPNL.BackColor = panelsBackColor; //цвет фона панелей*/
+            yozPic.Image = new Bitmap(274, 274);
+            xozPic.Image = new Bitmap(274, 274);
+            xoyPic.Image = new Bitmap(274, 274);
+            izomPic.Image = new Bitmap(274, 274);
         }
 
 
@@ -34,10 +34,7 @@ namespace GraphicalEditor
         double shiftX = 0; //сдвиг
         double shiftY = 0;
         double shiftZ = 0;
-        Bitmap b;
-        //Color backColor = System.Drawing.ColorTranslator.FromHtml("#bfcfd9");
         Color panelsBackColor = System.Drawing.ColorTranslator.FromHtml("#e2eef6");
-        
 
         /// <summary>
         /// Позволяет вести числовые данные в textbox только в стандартной форме. Для события KeyPress.
@@ -248,12 +245,9 @@ namespace GraphicalEditor
             Color lineColor = System.Drawing.ColorTranslator.FromHtml("#000000");
 
             //ось YOZ
-            Graphics yoz = Graphics.FromHwnd(yozPNL.Handle);
+            Graphics yoz = Graphics.FromImage(yozPic.Image);
             yoz.Clear(panelsBackColor);
             yoz.TranslateTransform(1, 249);
-
-            yoz.Clear(panelsBackColor);
-            yoz.Clear(panelsBackColor);
                 for (int i = 0; edges[i, 0] == -1; i++)
                 {
                     yoz.DrawLine(new Pen(lineColor, 1), new Point(Convert.ToInt32(risovat[Convert.ToInt32(edges[i, 1]) - 1, 2] * 248),
@@ -261,8 +255,11 @@ namespace GraphicalEditor
                         new Point(Convert.ToInt32(risovat[Convert.ToInt32(edges[i, 2]) - 1, 2] * 248),
                         -Convert.ToInt32(risovat[Convert.ToInt32(edges[i, 2]) - 1, 3] * 248)));
                 }
+            yoz.Dispose();
+            yozPic.Invalidate();
+
             //ось XOZ
-            Graphics xoz = Graphics.FromHwnd(xozPNL.Handle);
+            Graphics xoz = Graphics.FromImage(xozPic.Image);
             xoz.Clear(panelsBackColor);
             xoz.TranslateTransform(1, 249);
                 for (int i = 0; edges[i, 0] == -1; i++)
@@ -272,18 +269,22 @@ namespace GraphicalEditor
                         new Point(Convert.ToInt32(risovat[Convert.ToInt32(edges[i, 2]) - 1, 1] * 248),
                         -Convert.ToInt32(risovat[Convert.ToInt32(edges[i, 2]) - 1, 3] * 248)));
                 }
+            xoz.Dispose();
+            xozPic.Invalidate();
 
             //ось XOY
-            Graphics xoy = Graphics.FromHwnd(xoyPNL.Handle);
+            Graphics xoy = Graphics.FromImage(xoyPic.Image);
             xoy.Clear(panelsBackColor);
             //xoy.TranslateTransform(1, 249);
-                for (int i = 0; edges[i, 0] == -1; i++)
+            for (int i = 0; edges[i, 0] == -1; i++)
                 {
                     xoy.DrawLine(new Pen(lineColor, 1), new Point(Convert.ToInt32(risovat[Convert.ToInt32(edges[i, 1]) - 1, 2] * 248),
                         Convert.ToInt32(risovat[Convert.ToInt32(edges[i, 1]) - 1, 1] * 248)),
                         new Point(Convert.ToInt32(risovat[Convert.ToInt32(edges[i, 2]) - 1, 2] * 248),
                         Convert.ToInt32(risovat[Convert.ToInt32(edges[i, 2]) - 1, 1] * 248)));
                 }
+            xoy.Dispose();
+            xoyPic.Invalidate();
 
             // теперь будем строить изометрическую проекцию
 
@@ -375,7 +376,7 @@ namespace GraphicalEditor
             }
             //понормировали
 
-            Graphics izom = Graphics.FromHwnd(izomPNL.Handle);
+            Graphics izom = Graphics.FromImage(izomPic.Image);
             izom.Clear(panelsBackColor);
             izom.TranslateTransform(1, 1);
                 for (int i = 0; edges[i, 0] == -1; i++)
@@ -385,6 +386,8 @@ namespace GraphicalEditor
                         new Point(Convert.ToInt32(izometr[Convert.ToInt32(edges[i, 2]) - 1, 2] * 248),
                         Convert.ToInt32(izometr[Convert.ToInt32(edges[i, 2]) - 1, 1] * 248)));
                 }
+            izom.Dispose();
+            izomPic.Invalidate();
         }
 
         /// <summary>
@@ -398,6 +401,18 @@ namespace GraphicalEditor
                 label.Text = label.Text.Remove(3);
             label.Text = label.Text + Convert.ToString(n);
         }
+
+        /// <summary>
+        /// Удаление всей графики с рисунка, замена на сплошной фон
+        /// </summary>
+        /// <param name="i">Элемент PictureBox</param>
+        private void clearImage(PictureBox i) {
+            Graphics g = Graphics.FromImage(i.Image);
+            g.Clear(System.Drawing.ColorTranslator.FromHtml("#e2eef6"));
+            g.Dispose();
+            i.Invalidate();
+        }
+
         /// <summary>
         /// Возвращает значение из StatusStrip для дальнейшего использования
         /// </summary>
@@ -604,10 +619,7 @@ namespace GraphicalEditor
                 editTSS(tss_SY, 1);
                 editTSS(tss_SZ, 1);
             }
-            Graphics xoz = Graphics.FromHwnd(xozPNL.Handle); xoz.Clear(panelsBackColor);
-            Graphics yoz = Graphics.FromHwnd(yozPNL.Handle); yoz.Clear(panelsBackColor);
-            Graphics xoy = Graphics.FromHwnd(xoyPNL.Handle); xoy.Clear(panelsBackColor);
-            Graphics izom = Graphics.FromHwnd(izomPNL.Handle); izom.Clear(panelsBackColor);
+            clearImage(xoyPic); clearImage(xozPic); clearImage(izomPic); clearImage(yozPic);
         }
 
         //ДИАЛОГ ОТКРЫТИЯ ДОКУМЕНТА
@@ -840,7 +852,7 @@ namespace GraphicalEditor
                     vertexes_norm = NormalizationCoordinates(vertexes_arr);
                 }
 
-                //picture(vertexes_norm, edges_arr);
+                picture(vertexes_norm, edges_arr);
                 vertexTB_X.Clear(); vertexTB_Y.Clear(); vertexTB_Z.Clear();
             }
         }
@@ -864,7 +876,7 @@ namespace GraphicalEditor
                         coefficient(vertexes_arr);
                         vertexes_norm = NormalizationCoordinates(vertexes_arr);
                     }
-                    //picture(vertexes_norm, edges_arr);
+                    picture(vertexes_norm, edges_arr);
                 }
             }
             else MessageBox.Show("Не выбрана строка для изменения!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -897,7 +909,7 @@ namespace GraphicalEditor
                         coefficient(vertexes_arr);
                         vertexes_norm = NormalizationCoordinates(vertexes_arr);
                     }
-                    //picture(vertexes_norm, edges_arr);
+                    picture(vertexes_norm, edges_arr);
                 }
 
             VertexGrid.Rows.Remove(VertexGrid.CurrentRow);
@@ -1444,7 +1456,6 @@ namespace GraphicalEditor
 
         private void PrintToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            izomPNL.DrawToBitmap(b, izomPNL.ClientRectangle);
             if (printDialog1.ShowDialog() == DialogResult.OK)
                 printDocument1.Print();
         }
@@ -1455,15 +1466,15 @@ namespace GraphicalEditor
             Rectangle rect;
             int pbWidth = e.MarginBounds.Width;
             int pbHeight = e.MarginBounds.Height;
-            int ImageWidth = b.Width; int ImageHeight = b.Height;
+            int ImageWidth = izomPic.Image.Width; int ImageHeight = izomPic.Height;
 
-            SizeF sizef = new SizeF(ImageWidth / b.HorizontalResolution, ImageHeight / b.VerticalResolution);
+            SizeF sizef = new SizeF(ImageWidth / izomPic.Image.HorizontalResolution, ImageHeight / izomPic.Image.VerticalResolution);
             float fSeale = Math.Min(pbWidth / sizef.Width, pbHeight / sizef.Height);
             sizef.Width *= fSeale;
             sizef.Height *= fSeale;
             Size size = Size.Ceiling(sizef);
             rect = new Rectangle(e.MarginBounds.Location.X, e.MarginBounds.Location.Y, size.Width, size.Height);
-            g.DrawImage(b, rect);
+            g.DrawImage(izomPic.Image, rect);
         }
     }
 }
