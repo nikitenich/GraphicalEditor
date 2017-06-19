@@ -68,6 +68,28 @@ namespace GraphicalEditor
                     e.Handled = true;
             }
         }
+        /// <summary>
+        /// Обновляет количество элементов в DataGridView
+        /// </summary>
+        /// <param name="dg">DataGridView для пересчёта количества элементов</param>
+        /// <param name="e">Просто е</param>
+        private void gridCounter(DataGridView dg, DataGridViewRowsRemovedEventArgs e) {
+            for (int i = 0; i < dg.RowCount; i++)
+            {
+                DataGridViewRowHeaderCell cell = dg.Rows[i].HeaderCell;
+                cell.Value = (i + 1).ToString();
+                dg.Rows[i].HeaderCell = cell;
+            }
+        }
+        private void gridCounter(DataGridView dg, DataGridViewRowsAddedEventArgs e)
+        {
+            for (int i = 0; i < dg.RowCount; i++)
+            {
+                DataGridViewRowHeaderCell cell = dg.Rows[i].HeaderCell;
+                cell.Value = (i + 1).ToString();
+                dg.Rows[i].HeaderCell = cell;
+            }
+        }
 
         /// <summary>
         /// Возвращает булеву переменную. Если true - в массиве вершин уже есть такая точка.
@@ -129,7 +151,7 @@ namespace GraphicalEditor
         /// <param name="verh">массив координат вершин</param>
         /// <returns></returns>
         private bool NormalizationCheck(double[,] vertexes)
-        { //bool norma = true;
+        {
             for (int i = 0; vertexes[i, 0] == -1; i++)
             {
                 if (vertexes[i, 1] > 1 || vertexes[i, 1] < 0) return false;//norma = false;
@@ -841,6 +863,7 @@ namespace GraphicalEditor
                 if (SearchDuplicatePoint() == false)
                 {
                     VertexGrid.Rows.Add(VertexGrid.NewRowIndex, vertexTB_X.Text, vertexTB_Y.Text, vertexTB_Z.Text);
+                    //VertexGrid.CurrentRow.HeaderCell = Convert.ToString(VertexGrid.RowCount);
                     vertexes_arr = GridToArray(VertexGrid);
                     izm = true;
                 }
@@ -1391,7 +1414,6 @@ namespace GraphicalEditor
         //ТОЧНЫЙ МАСШТАБ
         private void ScaleAccuratelyButton_Click(object sender, EventArgs e)
         {
-
             if (Convert.ToDouble(ScaleAccuratelyOXBox.Text) == 0 || Convert.ToDouble(ScaleAccuratelyOYBox.Text) == 0 || Convert.ToDouble(ScaleAccuratelyOZBox.Text) == 0)
                 MessageBox.Show("Коэффициент масштабирования не может быть равен нулю", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
@@ -1475,6 +1497,26 @@ namespace GraphicalEditor
             Size size = Size.Ceiling(sizef);
             rect = new Rectangle(e.MarginBounds.Location.X, e.MarginBounds.Location.Y, size.Width, size.Height);
             g.DrawImage(izomPic.Image, rect);
+        }
+
+        private void VertexGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            gridCounter(VertexGrid, e);
+        }
+
+        private void EdgesGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            gridCounter(EdgesGrid, e);
+        }
+
+        private void VertexGrid_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            gridCounter(VertexGrid, e);
+        }
+
+        private void EdgesGrid_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            gridCounter(EdgesGrid, e);
         }
     }
 }

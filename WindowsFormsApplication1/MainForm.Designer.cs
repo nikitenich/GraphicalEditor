@@ -113,10 +113,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.EditEdgeButton = new System.Windows.Forms.Button();
             this.VertexGrid = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.x = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.y = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.z = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddEdgeButton = new System.Windows.Forms.Button();
             this.EdgesGrid = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -153,6 +149,10 @@
             this.tss_SZ = new System.Windows.Forms.ToolStripStatusLabel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.x = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.y = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.z = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -492,10 +492,10 @@
             // 
             this.ScaleTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.ScaleTab.Controls.Add(this.groupBox2);
-            this.ScaleTab.Location = new System.Drawing.Point(4, 5);
+            this.ScaleTab.Location = new System.Drawing.Point(4, 24);
             this.ScaleTab.Name = "ScaleTab";
             this.ScaleTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ScaleTab.Size = new System.Drawing.Size(318, 591);
+            this.ScaleTab.Size = new System.Drawing.Size(318, 572);
             this.ScaleTab.TabIndex = 0;
             this.ScaleTab.Text = "Масштаб";
             // 
@@ -508,7 +508,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(312, 585);
+            this.groupBox2.Size = new System.Drawing.Size(312, 566);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Масштаб";
@@ -678,10 +678,10 @@
             // 
             this.RotateTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.RotateTab.Controls.Add(this.groupBox3);
-            this.RotateTab.Location = new System.Drawing.Point(4, 5);
+            this.RotateTab.Location = new System.Drawing.Point(4, 24);
             this.RotateTab.Name = "RotateTab";
             this.RotateTab.Padding = new System.Windows.Forms.Padding(3);
-            this.RotateTab.Size = new System.Drawing.Size(318, 591);
+            this.RotateTab.Size = new System.Drawing.Size(318, 572);
             this.RotateTab.TabIndex = 1;
             this.RotateTab.Text = "Поворот";
             // 
@@ -694,7 +694,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(312, 585);
+            this.groupBox3.Size = new System.Drawing.Size(312, 566);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Поворот";
@@ -875,9 +875,9 @@
             // 
             this.ShiftTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.ShiftTab.Controls.Add(this.groupBox1);
-            this.ShiftTab.Location = new System.Drawing.Point(4, 5);
+            this.ShiftTab.Location = new System.Drawing.Point(4, 24);
             this.ShiftTab.Name = "ShiftTab";
-            this.ShiftTab.Size = new System.Drawing.Size(318, 591);
+            this.ShiftTab.Size = new System.Drawing.Size(318, 572);
             this.ShiftTab.TabIndex = 2;
             this.ShiftTab.Text = "Сдвиг";
             // 
@@ -890,7 +890,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(318, 591);
+            this.groupBox1.Size = new System.Drawing.Size(318, 572);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Сдвиг";
@@ -1156,40 +1156,12 @@
             this.VertexGrid.MultiSelect = false;
             this.VertexGrid.Name = "VertexGrid";
             this.VertexGrid.ReadOnly = true;
+            this.VertexGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.VertexGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.VertexGrid.ShowEditingIcon = false;
             this.VertexGrid.Size = new System.Drawing.Size(292, 162);
             this.VertexGrid.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column1.Visible = false;
-            this.Column1.Width = 50;
-            // 
-            // x
-            // 
-            this.x.HeaderText = "X";
-            this.x.Name = "x";
-            this.x.ReadOnly = true;
-            this.x.Width = 50;
-            // 
-            // y
-            // 
-            this.y.HeaderText = "Y";
-            this.y.Name = "y";
-            this.y.ReadOnly = true;
-            this.y.Width = 50;
-            // 
-            // z
-            // 
-            this.z.HeaderText = "Z";
-            this.z.Name = "z";
-            this.z.ReadOnly = true;
-            this.z.Width = 50;
+            this.VertexGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.VertexGrid_RowsAdded);
+            this.VertexGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.VertexGrid_RowsRemoved);
             // 
             // AddEdgeButton
             // 
@@ -1212,6 +1184,8 @@
             this.EdgesGrid.Name = "EdgesGrid";
             this.EdgesGrid.Size = new System.Drawing.Size(292, 159);
             this.EdgesGrid.TabIndex = 1;
+            this.EdgesGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.EdgesGrid_RowsAdded);
+            this.EdgesGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.EdgesGrid_RowsRemoved);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1364,9 +1338,9 @@
             // 
             this.StartTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.StartTab.Controls.Add(this.label21);
-            this.StartTab.Location = new System.Drawing.Point(4, 5);
+            this.StartTab.Location = new System.Drawing.Point(4, 24);
             this.StartTab.Name = "StartTab";
-            this.StartTab.Size = new System.Drawing.Size(318, 591);
+            this.StartTab.Size = new System.Drawing.Size(318, 572);
             this.StartTab.TabIndex = 4;
             this.StartTab.Text = "StartTab";
             // 
@@ -1378,7 +1352,7 @@
             this.label21.Location = new System.Drawing.Point(0, 0);
             this.label21.Margin = new System.Windows.Forms.Padding(0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(318, 591);
+            this.label21.Size = new System.Drawing.Size(318, 572);
             this.label21.TabIndex = 0;
             this.label21.Text = "Начни работу с пункта \"Файл\" :)";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1530,6 +1504,36 @@
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column1.Visible = false;
+            this.Column1.Width = 50;
+            // 
+            // x
+            // 
+            this.x.HeaderText = "X";
+            this.x.Name = "x";
+            this.x.ReadOnly = true;
+            this.x.Width = 50;
+            // 
+            // y
+            // 
+            this.y.HeaderText = "Y";
+            this.y.Name = "y";
+            this.y.ReadOnly = true;
+            this.y.Width = 50;
+            // 
+            // z
+            // 
+            this.z.HeaderText = "Z";
+            this.z.Name = "z";
+            this.z.ReadOnly = true;
+            this.z.Width = 50;
             // 
             // MainForm
             // 
@@ -1703,10 +1707,6 @@
         private System.Windows.Forms.RadioButton RotateAccuratelyRB;
         private System.Windows.Forms.RadioButton RotateRoughRB;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn x;
-        private System.Windows.Forms.DataGridViewTextBoxColumn y;
-        private System.Windows.Forms.DataGridViewTextBoxColumn z;
         private System.Windows.Forms.ToolStripStatusLabel tss_TX;
         private System.Windows.Forms.ToolStripStatusLabel tss_TY;
         private System.Windows.Forms.ToolStripStatusLabel tss_RX;
@@ -1725,6 +1725,10 @@
         private System.Windows.Forms.PictureBox izomPic;
         private System.Windows.Forms.PictureBox xoyPic;
         private System.Windows.Forms.PictureBox xozPic;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn x;
+        private System.Windows.Forms.DataGridViewTextBoxColumn y;
+        private System.Windows.Forms.DataGridViewTextBoxColumn z;
     }
 }
 
