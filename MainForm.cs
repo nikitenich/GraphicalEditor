@@ -426,8 +426,8 @@ namespace GraphicalEditor
                 x2 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 2] - 1), 1] * horizon_max));
                 y2 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 2] - 1), 2] * 1 * vertical_max));
                 
-                p1 = new Point(x1, y1);
-                p2 = new Point(x2, y2);
+                p1 = new Point(y1, x1);
+                p2 = new Point(y2, x2);
                 xoy.SmoothingMode = SmoothingMode.AntiAlias;
                 xoy.DrawLine(new Pen(lineColor, 1), p1, p2);
             }
