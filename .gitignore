@@ -293,5 +293,5 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.csS
-/пирамида.ngf
-/куб.ngf
+# nikitenich's graphics format
+*.ngf
