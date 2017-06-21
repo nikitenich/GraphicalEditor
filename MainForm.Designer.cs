@@ -112,9 +112,13 @@
             this.DeleteEdgeButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.EditEdgeButton = new System.Windows.Forms.Button();
-            this.VertexGrid = new System.Windows.Forms.DataGridView();
+            this.vertexGrid = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.x = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.y = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.z = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddEdgeButton = new System.Windows.Forms.Button();
-            this.EdgesGrid = new System.Windows.Forms.DataGridView();
+            this.edgesGrid = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -149,10 +153,6 @@
             this.tss_SZ = new System.Windows.Forms.ToolStripStatusLabel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.x = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.y = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.z = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -181,8 +181,8 @@
             this.ShiftSelectGroupBox.SuspendLayout();
             this.CreateTab.SuspendLayout();
             this.CreateGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.VertexGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EdgesGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vertexGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edgesGrid)).BeginInit();
             this.StartTab.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -283,7 +283,7 @@
             this.ActionToolStripMenuItem.Enabled = false;
             this.ActionToolStripMenuItem.Name = "ActionToolStripMenuItem";
             this.ActionToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.ActionToolStripMenuItem.Text = "Действие";
+            this.ActionToolStripMenuItem.Text = "Действиe";
             // 
             // ScaleToolStripMenuItem
             // 
@@ -492,10 +492,10 @@
             // 
             this.ScaleTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.ScaleTab.Controls.Add(this.groupBox2);
-            this.ScaleTab.Location = new System.Drawing.Point(4, 24);
+            this.ScaleTab.Location = new System.Drawing.Point(4, 5);
             this.ScaleTab.Name = "ScaleTab";
             this.ScaleTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ScaleTab.Size = new System.Drawing.Size(318, 572);
+            this.ScaleTab.Size = new System.Drawing.Size(318, 591);
             this.ScaleTab.TabIndex = 0;
             this.ScaleTab.Text = "Масштаб";
             // 
@@ -508,7 +508,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(312, 566);
+            this.groupBox2.Size = new System.Drawing.Size(312, 585);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Масштаб";
@@ -678,10 +678,10 @@
             // 
             this.RotateTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.RotateTab.Controls.Add(this.groupBox3);
-            this.RotateTab.Location = new System.Drawing.Point(4, 24);
+            this.RotateTab.Location = new System.Drawing.Point(4, 5);
             this.RotateTab.Name = "RotateTab";
             this.RotateTab.Padding = new System.Windows.Forms.Padding(3);
-            this.RotateTab.Size = new System.Drawing.Size(318, 572);
+            this.RotateTab.Size = new System.Drawing.Size(318, 591);
             this.RotateTab.TabIndex = 1;
             this.RotateTab.Text = "Поворот";
             // 
@@ -694,7 +694,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(312, 566);
+            this.groupBox3.Size = new System.Drawing.Size(312, 585);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Поворот";
@@ -875,9 +875,9 @@
             // 
             this.ShiftTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.ShiftTab.Controls.Add(this.groupBox1);
-            this.ShiftTab.Location = new System.Drawing.Point(4, 24);
+            this.ShiftTab.Location = new System.Drawing.Point(4, 5);
             this.ShiftTab.Name = "ShiftTab";
-            this.ShiftTab.Size = new System.Drawing.Size(318, 572);
+            this.ShiftTab.Size = new System.Drawing.Size(318, 591);
             this.ShiftTab.TabIndex = 2;
             this.ShiftTab.Text = "Сдвиг";
             // 
@@ -890,7 +890,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(318, 572);
+            this.groupBox1.Size = new System.Drawing.Size(318, 591);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Сдвиг";
@@ -1083,9 +1083,9 @@
             this.CreateGroupBox.Controls.Add(this.DeleteEdgeButton);
             this.CreateGroupBox.Controls.Add(this.label5);
             this.CreateGroupBox.Controls.Add(this.EditEdgeButton);
-            this.CreateGroupBox.Controls.Add(this.VertexGrid);
+            this.CreateGroupBox.Controls.Add(this.vertexGrid);
             this.CreateGroupBox.Controls.Add(this.AddEdgeButton);
-            this.CreateGroupBox.Controls.Add(this.EdgesGrid);
+            this.CreateGroupBox.Controls.Add(this.edgesGrid);
             this.CreateGroupBox.Controls.Add(this.label11);
             this.CreateGroupBox.Controls.Add(this.label6);
             this.CreateGroupBox.Controls.Add(this.label12);
@@ -1140,28 +1140,58 @@
             this.EditEdgeButton.UseVisualStyleBackColor = true;
             this.EditEdgeButton.Click += new System.EventHandler(this.EditEdgeButton_Click);
             // 
-            // VertexGrid
+            // vertexGrid
             // 
-            this.VertexGrid.AllowUserToAddRows = false;
-            this.VertexGrid.AllowUserToDeleteRows = false;
-            this.VertexGrid.AllowUserToResizeColumns = false;
-            this.VertexGrid.AllowUserToResizeRows = false;
-            this.VertexGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.VertexGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.vertexGrid.AllowUserToAddRows = false;
+            this.vertexGrid.AllowUserToDeleteRows = false;
+            this.vertexGrid.AllowUserToResizeColumns = false;
+            this.vertexGrid.AllowUserToResizeRows = false;
+            this.vertexGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.vertexGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.x,
             this.y,
             this.z});
-            this.VertexGrid.Location = new System.Drawing.Point(16, 32);
-            this.VertexGrid.MultiSelect = false;
-            this.VertexGrid.Name = "VertexGrid";
-            this.VertexGrid.ReadOnly = true;
-            this.VertexGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.VertexGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.VertexGrid.Size = new System.Drawing.Size(292, 162);
-            this.VertexGrid.TabIndex = 0;
-            this.VertexGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.VertexGrid_RowsAdded);
-            this.VertexGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.VertexGrid_RowsRemoved);
+            this.vertexGrid.Location = new System.Drawing.Point(16, 32);
+            this.vertexGrid.MultiSelect = false;
+            this.vertexGrid.Name = "vertexGrid";
+            this.vertexGrid.ReadOnly = true;
+            this.vertexGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.vertexGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.vertexGrid.Size = new System.Drawing.Size(292, 162);
+            this.vertexGrid.TabIndex = 0;
+            this.vertexGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.VertexGrid_RowsAdded);
+            this.vertexGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.VertexGrid_RowsRemoved);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column1.Visible = false;
+            this.Column1.Width = 50;
+            // 
+            // x
+            // 
+            this.x.HeaderText = "X";
+            this.x.Name = "x";
+            this.x.ReadOnly = true;
+            this.x.Width = 50;
+            // 
+            // y
+            // 
+            this.y.HeaderText = "Y";
+            this.y.Name = "y";
+            this.y.ReadOnly = true;
+            this.y.Width = 50;
+            // 
+            // z
+            // 
+            this.z.HeaderText = "Z";
+            this.z.Name = "z";
+            this.z.ReadOnly = true;
+            this.z.Width = 50;
             // 
             // AddEdgeButton
             // 
@@ -1173,19 +1203,19 @@
             this.AddEdgeButton.UseVisualStyleBackColor = true;
             this.AddEdgeButton.Click += new System.EventHandler(this.AddEdgeButton_Click);
             // 
-            // EdgesGrid
+            // edgesGrid
             // 
-            this.EdgesGrid.AllowUserToAddRows = false;
-            this.EdgesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.edgesGrid.AllowUserToAddRows = false;
+            this.edgesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.EdgesGrid.Location = new System.Drawing.Point(16, 302);
-            this.EdgesGrid.Name = "EdgesGrid";
-            this.EdgesGrid.Size = new System.Drawing.Size(292, 159);
-            this.EdgesGrid.TabIndex = 1;
-            this.EdgesGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.EdgesGrid_RowsAdded);
-            this.EdgesGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.EdgesGrid_RowsRemoved);
+            this.edgesGrid.Location = new System.Drawing.Point(16, 302);
+            this.edgesGrid.Name = "edgesGrid";
+            this.edgesGrid.Size = new System.Drawing.Size(292, 159);
+            this.edgesGrid.TabIndex = 1;
+            this.edgesGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.EdgesGrid_RowsAdded);
+            this.edgesGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.EdgesGrid_RowsRemoved);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1338,9 +1368,9 @@
             // 
             this.StartTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.StartTab.Controls.Add(this.label21);
-            this.StartTab.Location = new System.Drawing.Point(4, 24);
+            this.StartTab.Location = new System.Drawing.Point(4, 5);
             this.StartTab.Name = "StartTab";
-            this.StartTab.Size = new System.Drawing.Size(318, 572);
+            this.StartTab.Size = new System.Drawing.Size(318, 591);
             this.StartTab.TabIndex = 4;
             this.StartTab.Text = "StartTab";
             // 
@@ -1352,7 +1382,7 @@
             this.label21.Location = new System.Drawing.Point(0, 0);
             this.label21.Margin = new System.Windows.Forms.Padding(0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(318, 572);
+            this.label21.Size = new System.Drawing.Size(318, 591);
             this.label21.TabIndex = 0;
             this.label21.Text = "Начни работу с пункта \"Файл\" :)";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1505,36 +1535,6 @@
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column1.Visible = false;
-            this.Column1.Width = 50;
-            // 
-            // x
-            // 
-            this.x.HeaderText = "X";
-            this.x.Name = "x";
-            this.x.ReadOnly = true;
-            this.x.Width = 50;
-            // 
-            // y
-            // 
-            this.y.HeaderText = "Y";
-            this.y.Name = "y";
-            this.y.ReadOnly = true;
-            this.y.Width = 50;
-            // 
-            // z
-            // 
-            this.z.HeaderText = "Z";
-            this.z.Name = "z";
-            this.z.ReadOnly = true;
-            this.z.Width = 50;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1593,8 +1593,8 @@
             this.CreateTab.ResumeLayout(false);
             this.CreateGroupBox.ResumeLayout(false);
             this.CreateGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.VertexGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EdgesGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vertexGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edgesGrid)).EndInit();
             this.StartTab.ResumeLayout(false);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
@@ -1636,8 +1636,8 @@
         private System.Windows.Forms.TabPage CreateTab;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView EdgesGrid;
-        private System.Windows.Forms.DataGridView VertexGrid;
+        private System.Windows.Forms.DataGridView edgesGrid;
+        private System.Windows.Forms.DataGridView vertexGrid;
         private System.Windows.Forms.TabPage StartTab;
         private System.Windows.Forms.Button DeleteVertexButton;
         private System.Windows.Forms.Button EditVertexButton;
