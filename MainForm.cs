@@ -32,7 +32,6 @@ namespace GraphicalEditor
         public double[,] edges_arr = new double[1000, 3]; //список ребер
         public string filename = ""; //название файла
         public double k = 1; //коэффициент нормировки
-        public bool isRS = false;
         double shiftX = 0; //сдвиг
         double shiftY = 0;
         double shiftZ = 0;
@@ -1545,7 +1544,6 @@ namespace GraphicalEditor
                 editTSS(tss_SX, readTSS(tss_SX) * Sx);
                 editTSS(tss_SY, readTSS(tss_SY) * Sy);
                 editTSS(tss_SZ, readTSS(tss_SZ) * Sz);
-                isRS = true;
             }
         }
         #endregion
