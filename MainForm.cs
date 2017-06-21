@@ -245,7 +245,7 @@ namespace GraphicalEditor
         /// <summary>
         /// Проверяет, приведен ли массив к нормированным координатам.
         /// </summary>
-        /// <param name="verh">массив координат вершин</param>
+        /// <param name="vertexes">массив координат вершин</param>
         /// <returns></returns>
         private bool normalizationCheck(double[,] vertexes)
         {
@@ -359,8 +359,6 @@ namespace GraphicalEditor
         /// <param name="edges">Массив ребер</param>
         private void drawImages(double[,] vertexes, double[,] edges)
         {
-            //double[,] risovat;
-            //risovat = (double[,])vertexes.Clone();
             Color lineColor = ColorTranslator.FromHtml("#000000");
             
             //YOZ
@@ -474,11 +472,11 @@ namespace GraphicalEditor
                 startEdgeCoord = matrixMultiply(startEdgeCoord, izom_matrix);
                 endEdgeCoord = matrixMultiply(endEdgeCoord, izom_matrix);
 
-                Point izomp1 = new Point((int)(Math.Truncate(horizon_max * 0.5 + startEdgeCoord[0, 0] * horizon_max * 0.5)), (int)((-1) * (Math.Truncate(vertical_max * 0.5 + startEdgeCoord[0, 1] * vertical_max * 0.5))));
-                Point izomp2 = new Point((int)(Math.Truncate(horizon_max * 0.5 + endEdgeCoord[0, 0] * horizon_max * 0.5)), (int)((-1) * (Math.Truncate(vertical_max * 0.5 + endEdgeCoord[0, 1] * vertical_max * 0.5))));
+                Point p1 = new Point((int)(Math.Truncate(horizon_max * 0.5 + startEdgeCoord[0, 0] * horizon_max * 0.5)), (int)((-1) * (Math.Truncate(vertical_max * 0.5 + startEdgeCoord[0, 1] * vertical_max * 0.5))));
+                Point p2 = new Point((int)(Math.Truncate(horizon_max * 0.5 + endEdgeCoord[0, 0] * horizon_max * 0.5)), (int)((-1) * (Math.Truncate(vertical_max * 0.5 + endEdgeCoord[0, 1] * vertical_max * 0.5))));
               
                 izom.SmoothingMode = SmoothingMode.HighQuality;
-                izom.DrawLine(new Pen(lineColor, 1), izomp1, izomp2);
+                izom.DrawLine(new Pen(lineColor, 1), p1, p2);
             }
             izom.Dispose();
             izomPic.Invalidate();
@@ -1079,7 +1077,12 @@ namespace GraphicalEditor
                 if (ShiftRoughcheckedListBox.GetItemCheckState(2) == CheckState.Checked) Dz = -Convert.ToDouble(ShiftRoughTextBox.Text);
 
                 //матрица сдвига
-                double[,] sdvig = new double[4, 4] { { 1, 0, 0, 0 }, { 0, 1, 0, 0 }, { 0, 0, 1, 0 }, { Dx, Dy, Dz, 1 } };
+                double[,] shift = new double[4, 4] { 
+                    { 1, 0, 0, 0 },
+                    { 0, 1, 0, 0 },
+                    { 0, 0, 1, 0 },
+                    { Dx, Dy, Dz, 1 }
+                };
                 double[,] сoord = new double[1, 4];//координаты точки
 
                 for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл свдига
@@ -1088,7 +1091,7 @@ namespace GraphicalEditor
                     сoord[0, 1] = vertexes_arr[i, 2];
                     сoord[0, 2] = vertexes_arr[i, 3];
                     сoord[0, 3] = 1;
-                    сoord = matrixMultiply(сoord, sdvig);
+                    сoord = matrixMultiply(сoord, shift);
                     vertexes_arr[i, 1] = сoord[0, 0];
                     vertexes_arr[i, 2] = сoord[0, 1];
                     vertexes_arr[i, 3] = сoord[0, 2];
@@ -1129,7 +1132,12 @@ namespace GraphicalEditor
                 if (ShiftRoughcheckedListBox.GetItemCheckState(2) == CheckState.Checked) Dz = Convert.ToDouble(ShiftRoughTextBox.Text);
 
                 //матрица сдвига
-                double[,] sdvig = new double[4, 4] { { 1, 0, 0, 0 }, { 0, 1, 0, 0 }, { 0, 0, 1, 0 }, { Dx, Dy, Dz, 1 } };
+                double[,] shift = new double[4, 4] { 
+                    { 1, 0, 0, 0 },
+                    { 0, 1, 0, 0 }, 
+                    { 0, 0, 1, 0 }, 
+                    { Dx, Dy, Dz, 1 }
+                };
                 double[,] coord = new double[1, 4];//координаты точки
 
                 for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл свдига
@@ -1138,7 +1146,7 @@ namespace GraphicalEditor
                     coord[0, 1] = vertexes_arr[i, 2];
                     coord[0, 2] = vertexes_arr[i, 3];
                     coord[0, 3] = 1;
-                    coord = matrixMultiply(coord, sdvig);
+                    coord = matrixMultiply(coord, shift);
                     vertexes_arr[i, 1] = coord[0, 0];
                     vertexes_arr[i, 2] = coord[0, 1];
                     vertexes_arr[i, 3] = coord[0, 2];
@@ -1169,7 +1177,12 @@ namespace GraphicalEditor
         private void ShiftAccuratelyButton_Click(object sender, EventArgs e)
         {
             //матрица сдвига
-            double[,] sdvig = new double[4, 4] { { 1, 0, 0, 0 }, { 0, 1, 0, 0 }, { 0, 0, 1, 0 }, { Convert.ToDouble(ShiftAccuratelyOXBox.Text), Convert.ToDouble(ShiftAccuratelyOYBox.Text), Convert.ToDouble(ShiftAccuratelyOZBox.Text), 1 } };
+            double[,] shift = new double[4, 4] { 
+                { 1, 0, 0, 0 },
+                { 0, 1, 0, 0 },
+                { 0, 0, 1, 0 }, 
+                { Convert.ToDouble(ShiftAccuratelyOXBox.Text), Convert.ToDouble(ShiftAccuratelyOYBox.Text), Convert.ToDouble(ShiftAccuratelyOZBox.Text), 1 }
+            };
             double[,] сoord = new double[1, 4];//координаты точки
 
             for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл свдига
@@ -1178,7 +1191,7 @@ namespace GraphicalEditor
                 сoord[0, 1] = vertexes_arr[i, 2];
                 сoord[0, 2] = vertexes_arr[i, 3];
                 сoord[0, 3] = 1;
-                сoord = matrixMultiply(сoord, sdvig);
+                сoord = matrixMultiply(сoord, shift);
                 vertexes_arr[i, 1] = сoord[0, 0];
                 vertexes_arr[i, 2] = сoord[0, 1];
                 vertexes_arr[i, 3] = сoord[0, 2];
@@ -1188,7 +1201,6 @@ namespace GraphicalEditor
             for (int i = 0; vertexes_arr[i, 0] == -1; i++)
                 vertexGrid.Rows.Add(vertexes_arr[i, 0], vertexes_arr[i, 1], vertexes_arr[i, 2], vertexes_arr[i, 3]);
 
-            //isShifted = true;
             vertexes_norm = normalizationCoordinates(vertexes_arr);
             if (normalizationCheck(vertexes_norm) != true)
             {
@@ -1222,10 +1234,25 @@ namespace GraphicalEditor
                 if (RotateRoughcheckedListBox.GetItemCheckState(0) == CheckState.Checked) b = -Convert.ToDouble(RotateRoughTextBox.Text) * Math.PI / 180; //ox
                 if (RotateRoughcheckedListBox.GetItemCheckState(1) == CheckState.Checked) g = -Convert.ToDouble(RotateRoughTextBox.Text) * Math.PI / 180; //oy
 
-                //матрица масштабирования
-                double[,] Rz = new double[4, 4] { { Math.Cos(a), Math.Sin(a), 0, 0 }, { -Math.Sin(a), Math.Cos(a), 0, 0 }, { 0, 0, 1, 0 }, { 0, 0, 0, 1 } };
-                double[,] Rx = new double[4, 4] { { 1, 0, 0, 0 }, { 0, Math.Cos(b), Math.Sin(b), 0 }, { 0, -Math.Sin(b), Math.Cos(b), 0 }, { 0, 0, 0, 1 } };
-                double[,] Ry = new double[4, 4] { { Math.Cos(g), 0, Math.Sin(g), 0 }, { 0, 1, 0, 0 }, { -Math.Sin(g), 0, Math.Cos(g), 0 }, { 0, 0, 0, 1 } };
+                //матрицы поворота
+                double[,] Rz = new double[4, 4] { 
+                    { Math.Cos(a), Math.Sin(a), 0, 0 },
+                    { -Math.Sin(a), Math.Cos(a), 0, 0 },
+                    { 0, 0, 1, 0 },
+                    { 0, 0, 0, 1 }
+                };
+                double[,] Rx = new double[4, 4] { 
+                    { 1, 0, 0, 0 },
+                    { 0, Math.Cos(b), Math.Sin(b), 0 },
+                    { 0, -Math.Sin(b), Math.Cos(b), 0 },
+                    { 0, 0, 0, 1 }
+                };
+                double[,] Ry = new double[4, 4] {
+                    { Math.Cos(g), 0, Math.Sin(g), 0 },
+                    { 0, 1, 0, 0 },
+                    { -Math.Sin(g), 0, Math.Cos(g), 0 },
+                    { 0, 0, 0, 1 }
+                };
 
                 double[,] сoord = new double[1, 4]; //координаты точки
 
@@ -1279,10 +1306,25 @@ namespace GraphicalEditor
                 if (RotateRoughcheckedListBox.GetItemCheckState(0) == CheckState.Checked) b = Convert.ToDouble(RotateRoughTextBox.Text) * Math.PI / 180; //ox
                 if (RotateRoughcheckedListBox.GetItemCheckState(1) == CheckState.Checked) g = Convert.ToDouble(RotateRoughTextBox.Text) * Math.PI / 180; //oy
 
-                //матрица масштабирования
-                double[,] Rz = new double[4, 4] { { Math.Cos(a), Math.Sin(a), 0, 0 }, { -Math.Sin(a), Math.Cos(a), 0, 0 }, { 0, 0, 1, 0 }, { 0, 0, 0, 1 } };
-                double[,] Rx = new double[4, 4] { { 1, 0, 0, 0 }, { 0, Math.Cos(b), Math.Sin(b), 0 }, { 0, -Math.Sin(b), Math.Cos(b), 0 }, { 0, 0, 0, 1 } };
-                double[,] Ry = new double[4, 4] { { Math.Cos(g), 0, Math.Sin(g), 0 }, { 0, 1, 0, 0 }, { -Math.Sin(g), 0, Math.Cos(g), 0 }, { 0, 0, 0, 1 } };
+                //матрицы поворота
+                double[,] Rz = new double[4, 4] { 
+                    { Math.Cos(a), Math.Sin(a), 0, 0 },
+                    { -Math.Sin(a), Math.Cos(a), 0, 0 },
+                    { 0, 0, 1, 0 },
+                    { 0, 0, 0, 1 }
+                };
+                double[,] Rx = new double[4, 4] { 
+                    { 1, 0, 0, 0 }, 
+                    { 0, Math.Cos(b), Math.Sin(b), 0 },
+                    { 0, -Math.Sin(b), Math.Cos(b), 0 },
+                    { 0, 0, 0, 1 }
+                };
+                double[,] Ry = new double[4, 4] { 
+                    { Math.Cos(g), 0, Math.Sin(g), 0 },
+                    { 0, 1, 0, 0 },
+                    { -Math.Sin(g), 0, Math.Cos(g), 0 },
+                    { 0, 0, 0, 1 }
+                };
 
                 double[,] сoord = new double[1, 4];//координаты точки
 
@@ -1326,10 +1368,25 @@ namespace GraphicalEditor
             double b = Convert.ToDouble(RotateAccuratelyOXBox.Text);
             double g = Convert.ToDouble(RotateAccuratelyOYBox.Text);
 
-            //матрица масштабирования
-            double[,] Rz = new double[4, 4] { { Math.Cos(a), Math.Sin(a), 0, 0 }, { -Math.Sin(a), Math.Cos(a), 0, 0 }, { 0, 0, 1, 0 }, { 0, 0, 0, 1 } };
-            double[,] Rx = new double[4, 4] { { 1, 0, 0, 0 }, { 0, Math.Cos(b), Math.Sin(b), 0 }, { 0, -Math.Sin(b), Math.Cos(b), 0 }, { 0, 0, 0, 1 } };
-            double[,] Ry = new double[4, 4] { { Math.Cos(g), 0, Math.Sin(g), 0 }, { 0, 1, 0, 0 }, { -Math.Sin(g), 0, Math.Cos(g), 0 }, { 0, 0, 0, 1 } };
+            //матрицы поворота
+            double[,] Rz = new double[4, 4] { 
+                { Math.Cos(a), Math.Sin(a), 0, 0 },
+                { -Math.Sin(a), Math.Cos(a), 0, 0 },
+                { 0, 0, 1, 0 },
+                { 0, 0, 0, 1 }
+            };
+            double[,] Rx = new double[4, 4] { 
+                { 1, 0, 0, 0 },
+                { 0, Math.Cos(b), Math.Sin(b), 0 },
+                { 0, -Math.Sin(b), Math.Cos(b), 0 },
+                { 0, 0, 0, 1 }
+            };
+            double[,] Ry = new double[4, 4] { 
+                { Math.Cos(g), 0, Math.Sin(g), 0 },
+                { 0, 1, 0, 0 },
+                { -Math.Sin(g), 0, Math.Cos(g), 0 },
+                { 0, 0, 0, 1 }
+            };
 
             double[,] сoord = new double[1, 4];//координаты точки
 
@@ -1392,7 +1449,12 @@ namespace GraphicalEditor
                         if (ScaleRoughcheckedListBox.GetItemCheckState(2) == CheckState.Checked) Sz = Convert.ToDouble(ScaleRoughTextBox.Text);
 
                         //матрица масштабирования
-                        double[,] shift = new double[4, 4] { { Sx, 0, 0, 0 }, { 0, Sy, 0, 0 }, { 0, 0, Sz, 0 }, { 0, 0, 0, 1 } };
+                        double[,] scale = new double[4, 4] { 
+                            { Sx, 0, 0, 0 },
+                            { 0, Sy, 0, 0 }, 
+                            { 0, 0, Sz, 0 },
+                            { 0, 0, 0, 1 }
+                        };
                         double[,] сoord = new double[1, 4];//координаты точки
 
                         for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл масштабирования
@@ -1401,7 +1463,7 @@ namespace GraphicalEditor
                             сoord[0, 1] = vertexes_arr[i, 2];
                             сoord[0, 2] = vertexes_arr[i, 3];
                             сoord[0, 3] = 1;
-                            сoord = matrixMultiply(сoord, shift);
+                            сoord = matrixMultiply(сoord, scale);
                             vertexes_arr[i, 1] = сoord[0, 0];
                             vertexes_arr[i, 2] = сoord[0, 1];
                             vertexes_arr[i, 3] = сoord[0, 2];
@@ -1447,7 +1509,12 @@ namespace GraphicalEditor
                 double Sz = Convert.ToDouble(ScaleAccuratelyOZBox.Text);
 
                 //матрица масштабирования
-                double[,] shift = new double[4, 4] { { Sx, 0, 0, 0 }, { 0, Sy, 0, 0 }, { 0, 0, Sz, 0 }, { 0, 0, 0, 1 } };
+                double[,] scale = new double[4, 4] { 
+                    { Sx, 0, 0, 0 },
+                    { 0, Sy, 0, 0 }, 
+                    { 0, 0, Sz, 0 },
+                    { 0, 0, 0, 1 }
+                };
                 double[,] сoord = new double[1, 4]; //координаты точки
 
                 for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл масштабирования
@@ -1456,7 +1523,7 @@ namespace GraphicalEditor
                     сoord[0, 1] = vertexes_arr[i, 2];
                     сoord[0, 2] = vertexes_arr[i, 3];
                     сoord[0, 3] = 1;
-                    сoord = matrixMultiply(сoord, shift);
+                    сoord = matrixMultiply(сoord, scale);
                     vertexes_arr[i, 1] = сoord[0, 0];
                     vertexes_arr[i, 2] = сoord[0, 1];
                     vertexes_arr[i, 3] = сoord[0, 2];
