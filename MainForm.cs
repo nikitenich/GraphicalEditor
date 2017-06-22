@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Globalization;
 using System.IO;
 using System.Drawing.Drawing2D;
 
@@ -73,94 +66,18 @@ namespace GraphicalEditor
         }
 
         // ПРОВЕРКА ВВОДА В ТЕКСТОВЫЕ ПОЛЯ
-        private void ScaleRoughTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            PressKey(ScaleRoughTextBox, false, e);
+        //true - будет минус
 
+        private void keyPress_withoutMinus(object sender, KeyPressEventArgs e)
+        {
+            TextBox text = sender as TextBox;
+            PressKey(text, false, e);
         }
 
-        private void ScaleAccuratelyOXBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void keyPress_withMinus(object sender, KeyPressEventArgs e)
         {
-            PressKey(ScaleAccuratelyOXBox, false, e);
-        }
-
-        private void ScaleAccuratelyOYBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            PressKey(ScaleAccuratelyOYBox, false, e);
-        }
-
-        private void ScaleAccuratelyOZBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            PressKey(ScaleAccuratelyOZBox, false, e);
-        }
-
-        private void ShiftRoughTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            PressKey(ShiftRoughTextBox, false, e);
-        }
-
-        private void ShiftAccuratelyOXBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            PressKey(ShiftAccuratelyOXBox, true, e);
-        }
-
-        private void ShiftAccuratelyOYBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            PressKey(ShiftAccuratelyOYBox, true, e);
-        }
-
-        private void ShiftAccuratelyOZBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            PressKey(ShiftAccuratelyOZBox, true, e);
-        }
-
-        private void RotateRoughTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            PressKey(RotateRoughTextBox, false, e);
-        }
-
-        private void RotateAccuratelyOXBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            PressKey(RotateAccuratelyOXBox, true, e);
-        }
-
-        private void RotateAccuratelyOYBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            PressKey(RotateAccuratelyOZBox, true, e);
-        }
-
-        private void RotateAccuratelyOZBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            PressKey(RotateAccuratelyOZBox, true, e);
-        }
-
-        private void vertexTB_X_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            PressKey(vertexTB_X, true, e);
-        }
-
-        private void vertexTB_Y_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            PressKey(vertexTB_Y, true, e);
-        }
-
-        private void vertexTB_Z_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            PressKey(vertexTB_Z, true, e);
-        }
-
-        private void edgeTB_start_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void edgeTB_end_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != Convert.ToChar(8))
-                e.Handled = true;
+            TextBox text = sender as TextBox;
+            PressKey(text, true, e);
         }
         #endregion
         
@@ -379,7 +296,7 @@ namespace GraphicalEditor
 
                 p1 = new Point(y1, z1);
                 p2 = new Point(y2, z2);
-                yoz.SmoothingMode = SmoothingMode.AntiAlias;
+                yoz.SmoothingMode = SmoothingMode.HighQuality;
                 yoz.DrawLine(new Pen(lineColor, 1), p1, p2);
             }
             yoz.Dispose();
@@ -402,7 +319,7 @@ namespace GraphicalEditor
 
                 p1 = new Point(x1, z1);
                 p2 = new Point(x2, z2);
-                xoz.SmoothingMode = SmoothingMode.AntiAlias;
+                xoz.SmoothingMode = SmoothingMode.HighQuality;
                 xoz.DrawLine(new Pen(lineColor, 1), p1, p2);
             }
             xoz.Dispose();
@@ -427,7 +344,7 @@ namespace GraphicalEditor
                 
                 p1 = new Point(y1, x1);
                 p2 = new Point(y2, x2);
-                xoy.SmoothingMode = SmoothingMode.AntiAlias;
+                xoy.SmoothingMode = SmoothingMode.HighQuality;
                 xoy.DrawLine(new Pen(lineColor, 1), p1, p2);
             }
             xoy.Dispose();
@@ -444,7 +361,6 @@ namespace GraphicalEditor
             //Матрица для построенния изометрии
             double alpha_r = 45 * (Math.PI / 180);
             double beta_r = 35.26439 * Math.PI / 180;
-            double[] res_vec = new double[4];
             double[,] izom_matrix = new double[4, 4]
             {
                     {-1*Math.Cos(alpha_r), -1*Math.Sin(alpha_r)*Math.Sin(beta_r), 0, 0 },
@@ -526,8 +442,8 @@ namespace GraphicalEditor
             if (OFD.ShowDialog() != DialogResult.Cancel)
                 try
                 {
-                    Array.Clear(vertex, 4, 1000);
-                    Array.Clear(edge, 3, 1000);
+                    Array.Clear(vertex, 0, 1000);
+                    Array.Clear(edge, 0, 1000);
                     StreamReader f = new StreamReader(OFD.FileName);
                     string read = null;
                     read = f.ReadLine();
@@ -611,6 +527,39 @@ namespace GraphicalEditor
         #endregion
 
         #region GUI
+        //Помещение в поля для ввода значений из таблиц
+        private void vertexGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            int curRow = 1;
+            try
+            {
+                curRow = vertexGrid.CurrentCell.RowIndex;
+                vertexTB_X.Text = Convert.ToString(vertexes_arr[curRow, 1]);
+                vertexTB_Y.Text = Convert.ToString(vertexes_arr[curRow, 2]);
+                vertexTB_Z.Text = Convert.ToString(vertexes_arr[curRow, 3]);
+            }
+            catch (NullReferenceException) { curRow = 1; }
+        }
+
+        private void edgesGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            int curRow = 1;
+            try
+            {
+                curRow = edgesGrid.CurrentCell.RowIndex;
+                edgeTB_start.Text = Convert.ToString(edges_arr[curRow, 1]);
+                edgeTB_end.Text = Convert.ToString(edges_arr[curRow, 2]);
+            }
+            catch (NullReferenceException) { curRow = 1; }
+        }
+
+        //Выделение текста при нажатии на поле либо же при его фокусировке
+        private void textBox_selection(object sender, EventArgs e)
+        {
+            TextBox text = sender as TextBox;
+            if (text != null) text.SelectAll();
+        }
+
         //Выход
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -755,8 +704,8 @@ namespace GraphicalEditor
 
             if (NF == true || figureIsChanged == false)
             {
-                Array.Clear(vertexes_arr, 4, 1000);
-                Array.Clear(edges_arr, 3, 1000);
+                Array.Clear(vertexes_arr, 0, 1000);
+                Array.Clear(edges_arr, 0, 1000);
                 figureIsChanged = false;
 
                 edgesGrid.Rows.Clear();
@@ -811,8 +760,8 @@ namespace GraphicalEditor
 
             if (NF == true || figureIsChanged == false)
             {
-                Array.Clear(vertexes_arr, 4, 1000);
-                Array.Clear(edges_arr, 3, 1000);
+                Array.Clear(vertexes_arr, 0, 1000);
+                Array.Clear(edges_arr, 0, 1000);
                 figureIsChanged = false;
                 openFile(vertexes_arr, edges_arr);
                 vertexGrid.Rows.Clear();
@@ -909,6 +858,7 @@ namespace GraphicalEditor
                         vertexes_norm = normalizationCoordinates(vertexes_arr);
                     }
                     drawImages(vertexes_norm, edges_arr);
+                    vertexTB_X.Clear(); vertexTB_Y.Clear(); vertexTB_Z.Clear();
                 }
             }
             else MessageBox.Show("Не выбрана строка для изменения!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -923,7 +873,7 @@ namespace GraphicalEditor
                 if ((current == Convert.ToInt32(edges_arr[i, 1])) || (current == Convert.ToInt32(edges_arr[i, 2])))
                 {
                     edgesGrid.Rows.Remove(edgesGrid.Rows[i]);
-                    Array.Clear(edges_arr, 3, 1000);
+                    Array.Clear(edges_arr, 0, 1000);
                     edges_arr = gridToArray(edgesGrid);
                     edgesGrid.Rows.Clear();
 
@@ -1552,8 +1502,8 @@ namespace GraphicalEditor
         //ПЕЧАТЬ
         private void PrintToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (printDialog1.ShowDialog() == DialogResult.OK)
-                printDocument1.Print();
+            if (printDialog.ShowDialog() == DialogResult.OK)
+                printDocument.Print();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

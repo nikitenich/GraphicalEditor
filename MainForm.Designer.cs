@@ -151,8 +151,8 @@
             this.tss_SX = new System.Windows.Forms.ToolStripStatusLabel();
             this.tss_SY = new System.Windows.Forms.ToolStripStatusLabel();
             this.tss_SZ = new System.Windows.Forms.ToolStripStatusLabel();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printDialog = new System.Windows.Forms.PrintDialog();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -492,10 +492,10 @@
             // 
             this.ScaleTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.ScaleTab.Controls.Add(this.groupBox2);
-            this.ScaleTab.Location = new System.Drawing.Point(4, 5);
+            this.ScaleTab.Location = new System.Drawing.Point(4, 24);
             this.ScaleTab.Name = "ScaleTab";
             this.ScaleTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ScaleTab.Size = new System.Drawing.Size(318, 591);
+            this.ScaleTab.Size = new System.Drawing.Size(318, 572);
             this.ScaleTab.TabIndex = 0;
             this.ScaleTab.Text = "Масштаб";
             // 
@@ -508,7 +508,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(312, 585);
+            this.groupBox2.Size = new System.Drawing.Size(312, 566);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Масштаб";
@@ -574,7 +574,9 @@
             this.ScaleAccuratelyOZBox.Size = new System.Drawing.Size(42, 20);
             this.ScaleAccuratelyOZBox.TabIndex = 2;
             this.ScaleAccuratelyOZBox.Text = "1";
-            this.ScaleAccuratelyOZBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ScaleAccuratelyOZBox_KeyPress);
+            this.ScaleAccuratelyOZBox.Click += new System.EventHandler(this.textBox_selection);
+            this.ScaleAccuratelyOZBox.Enter += new System.EventHandler(this.textBox_selection);
+            this.ScaleAccuratelyOZBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withoutMinus);
             // 
             // ScaleAccuratelyOYBox
             // 
@@ -583,7 +585,9 @@
             this.ScaleAccuratelyOYBox.Size = new System.Drawing.Size(42, 20);
             this.ScaleAccuratelyOYBox.TabIndex = 1;
             this.ScaleAccuratelyOYBox.Text = "1";
-            this.ScaleAccuratelyOYBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ScaleAccuratelyOYBox_KeyPress);
+            this.ScaleAccuratelyOYBox.Click += new System.EventHandler(this.textBox_selection);
+            this.ScaleAccuratelyOYBox.Enter += new System.EventHandler(this.textBox_selection);
+            this.ScaleAccuratelyOYBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withoutMinus);
             // 
             // ScaleAccuratelyOXBox
             // 
@@ -592,7 +596,9 @@
             this.ScaleAccuratelyOXBox.Size = new System.Drawing.Size(42, 20);
             this.ScaleAccuratelyOXBox.TabIndex = 0;
             this.ScaleAccuratelyOXBox.Text = "1";
-            this.ScaleAccuratelyOXBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ScaleAccuratelyOXBox_KeyPress);
+            this.ScaleAccuratelyOXBox.Click += new System.EventHandler(this.textBox_selection);
+            this.ScaleAccuratelyOXBox.Enter += new System.EventHandler(this.textBox_selection);
+            this.ScaleAccuratelyOXBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withoutMinus);
             // 
             // ScaleRoughGroupBox
             // 
@@ -622,8 +628,10 @@
             this.ScaleRoughTextBox.Name = "ScaleRoughTextBox";
             this.ScaleRoughTextBox.Size = new System.Drawing.Size(100, 20);
             this.ScaleRoughTextBox.TabIndex = 1;
-            this.ScaleRoughTextBox.Text = "0";
-            this.ScaleRoughTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ScaleRoughTextBox_KeyPress);
+            this.ScaleRoughTextBox.Text = "1";
+            this.ScaleRoughTextBox.Click += new System.EventHandler(this.textBox_selection);
+            this.ScaleRoughTextBox.Enter += new System.EventHandler(this.textBox_selection);
+            this.ScaleRoughTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withoutMinus);
             // 
             // ScaleRoughcheckedListBox
             // 
@@ -678,10 +686,10 @@
             // 
             this.RotateTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.RotateTab.Controls.Add(this.groupBox3);
-            this.RotateTab.Location = new System.Drawing.Point(4, 5);
+            this.RotateTab.Location = new System.Drawing.Point(4, 24);
             this.RotateTab.Name = "RotateTab";
             this.RotateTab.Padding = new System.Windows.Forms.Padding(3);
-            this.RotateTab.Size = new System.Drawing.Size(318, 591);
+            this.RotateTab.Size = new System.Drawing.Size(318, 572);
             this.RotateTab.TabIndex = 1;
             this.RotateTab.Text = "Поворот";
             // 
@@ -694,7 +702,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(312, 585);
+            this.groupBox3.Size = new System.Drawing.Size(312, 566);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Поворот";
@@ -760,7 +768,9 @@
             this.RotateAccuratelyOZBox.Size = new System.Drawing.Size(42, 20);
             this.RotateAccuratelyOZBox.TabIndex = 2;
             this.RotateAccuratelyOZBox.Text = "0";
-            this.RotateAccuratelyOZBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RotateAccuratelyOZBox_KeyPress);
+            this.RotateAccuratelyOZBox.Click += new System.EventHandler(this.textBox_selection);
+            this.RotateAccuratelyOZBox.Enter += new System.EventHandler(this.textBox_selection);
+            this.RotateAccuratelyOZBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withMinus);
             // 
             // RotateAccuratelyOYBox
             // 
@@ -769,7 +779,9 @@
             this.RotateAccuratelyOYBox.Size = new System.Drawing.Size(42, 20);
             this.RotateAccuratelyOYBox.TabIndex = 1;
             this.RotateAccuratelyOYBox.Text = "0";
-            this.RotateAccuratelyOYBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RotateAccuratelyOYBox_KeyPress);
+            this.RotateAccuratelyOYBox.Click += new System.EventHandler(this.textBox_selection);
+            this.RotateAccuratelyOYBox.Enter += new System.EventHandler(this.textBox_selection);
+            this.RotateAccuratelyOYBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withMinus);
             // 
             // RotateAccuratelyOXBox
             // 
@@ -778,7 +790,9 @@
             this.RotateAccuratelyOXBox.Size = new System.Drawing.Size(42, 20);
             this.RotateAccuratelyOXBox.TabIndex = 0;
             this.RotateAccuratelyOXBox.Text = "0";
-            this.RotateAccuratelyOXBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RotateAccuratelyOXBox_KeyPress);
+            this.RotateAccuratelyOXBox.Click += new System.EventHandler(this.textBox_selection);
+            this.RotateAccuratelyOXBox.Enter += new System.EventHandler(this.textBox_selection);
+            this.RotateAccuratelyOXBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withMinus);
             // 
             // RotateRoughGroupBox
             // 
@@ -820,7 +834,9 @@
             this.RotateRoughTextBox.Size = new System.Drawing.Size(100, 20);
             this.RotateRoughTextBox.TabIndex = 1;
             this.RotateRoughTextBox.Text = "0";
-            this.RotateRoughTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RotateRoughTextBox_KeyPress);
+            this.RotateRoughTextBox.Click += new System.EventHandler(this.textBox_selection);
+            this.RotateRoughTextBox.Enter += new System.EventHandler(this.textBox_selection);
+            this.RotateRoughTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withoutMinus);
             // 
             // RotateRoughcheckedListBox
             // 
@@ -875,9 +891,9 @@
             // 
             this.ShiftTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.ShiftTab.Controls.Add(this.groupBox1);
-            this.ShiftTab.Location = new System.Drawing.Point(4, 5);
+            this.ShiftTab.Location = new System.Drawing.Point(4, 24);
             this.ShiftTab.Name = "ShiftTab";
-            this.ShiftTab.Size = new System.Drawing.Size(318, 591);
+            this.ShiftTab.Size = new System.Drawing.Size(318, 572);
             this.ShiftTab.TabIndex = 2;
             this.ShiftTab.Text = "Сдвиг";
             // 
@@ -890,7 +906,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(318, 591);
+            this.groupBox1.Size = new System.Drawing.Size(318, 572);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Сдвиг";
@@ -904,7 +920,7 @@
             this.ShiftAccuratelyGroupBox.Controls.Add(this.ShiftAccuratelyOZBox);
             this.ShiftAccuratelyGroupBox.Controls.Add(this.ShiftAccuratelyOYBox);
             this.ShiftAccuratelyGroupBox.Controls.Add(this.ShiftAccuratelyOXBox);
-            this.ShiftAccuratelyGroupBox.Location = new System.Drawing.Point(3, 95);
+            this.ShiftAccuratelyGroupBox.Location = new System.Drawing.Point(6, 95);
             this.ShiftAccuratelyGroupBox.Name = "ShiftAccuratelyGroupBox";
             this.ShiftAccuratelyGroupBox.Size = new System.Drawing.Size(270, 148);
             this.ShiftAccuratelyGroupBox.TabIndex = 2;
@@ -956,7 +972,9 @@
             this.ShiftAccuratelyOZBox.Size = new System.Drawing.Size(42, 20);
             this.ShiftAccuratelyOZBox.TabIndex = 2;
             this.ShiftAccuratelyOZBox.Text = "0";
-            this.ShiftAccuratelyOZBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ShiftAccuratelyOZBox_KeyPress);
+            this.ShiftAccuratelyOZBox.Click += new System.EventHandler(this.textBox_selection);
+            this.ShiftAccuratelyOZBox.Enter += new System.EventHandler(this.textBox_selection);
+            this.ShiftAccuratelyOZBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withMinus);
             // 
             // ShiftAccuratelyOYBox
             // 
@@ -965,7 +983,9 @@
             this.ShiftAccuratelyOYBox.Size = new System.Drawing.Size(42, 20);
             this.ShiftAccuratelyOYBox.TabIndex = 1;
             this.ShiftAccuratelyOYBox.Text = "0";
-            this.ShiftAccuratelyOYBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ShiftAccuratelyOYBox_KeyPress);
+            this.ShiftAccuratelyOYBox.Click += new System.EventHandler(this.textBox_selection);
+            this.ShiftAccuratelyOYBox.Enter += new System.EventHandler(this.textBox_selection);
+            this.ShiftAccuratelyOYBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withMinus);
             // 
             // ShiftAccuratelyOXBox
             // 
@@ -974,7 +994,9 @@
             this.ShiftAccuratelyOXBox.Size = new System.Drawing.Size(42, 20);
             this.ShiftAccuratelyOXBox.TabIndex = 0;
             this.ShiftAccuratelyOXBox.Text = "0";
-            this.ShiftAccuratelyOXBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ShiftAccuratelyOXBox_KeyPress);
+            this.ShiftAccuratelyOXBox.Click += new System.EventHandler(this.textBox_selection);
+            this.ShiftAccuratelyOXBox.Enter += new System.EventHandler(this.textBox_selection);
+            this.ShiftAccuratelyOXBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withMinus);
             // 
             // ShiftRoughGroupBox
             // 
@@ -1016,7 +1038,9 @@
             this.ShiftRoughTextBox.Size = new System.Drawing.Size(100, 20);
             this.ShiftRoughTextBox.TabIndex = 1;
             this.ShiftRoughTextBox.Text = "0";
-            this.ShiftRoughTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ShiftRoughTextBox_KeyPress);
+            this.ShiftRoughTextBox.Click += new System.EventHandler(this.textBox_selection);
+            this.ShiftRoughTextBox.Enter += new System.EventHandler(this.textBox_selection);
+            this.ShiftRoughTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withoutMinus);
             // 
             // ShiftRoughcheckedListBox
             // 
@@ -1162,6 +1186,7 @@
             this.vertexGrid.TabIndex = 0;
             this.vertexGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.VertexGrid_RowsAdded);
             this.vertexGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.VertexGrid_RowsRemoved);
+            this.vertexGrid.SelectionChanged += new System.EventHandler(this.vertexGrid_SelectionChanged);
             // 
             // Column1
             // 
@@ -1216,6 +1241,7 @@
             this.edgesGrid.TabIndex = 1;
             this.edgesGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.EdgesGrid_RowsAdded);
             this.edgesGrid.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.EdgesGrid_RowsRemoved);
+            this.edgesGrid.SelectionChanged += new System.EventHandler(this.edgesGrid_SelectionChanged);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1273,7 +1299,9 @@
             this.vertexTB_X.Name = "vertexTB_X";
             this.vertexTB_X.Size = new System.Drawing.Size(33, 20);
             this.vertexTB_X.TabIndex = 4;
-            this.vertexTB_X.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.vertexTB_X_KeyPress);
+            this.vertexTB_X.Click += new System.EventHandler(this.textBox_selection);
+            this.vertexTB_X.Enter += new System.EventHandler(this.textBox_selection);
+            this.vertexTB_X.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withMinus);
             // 
             // edgeTB_end
             // 
@@ -1281,7 +1309,9 @@
             this.edgeTB_end.Name = "edgeTB_end";
             this.edgeTB_end.Size = new System.Drawing.Size(33, 20);
             this.edgeTB_end.TabIndex = 14;
-            this.edgeTB_end.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edgeTB_end_KeyPress);
+            this.edgeTB_end.Click += new System.EventHandler(this.textBox_selection);
+            this.edgeTB_end.Enter += new System.EventHandler(this.textBox_selection);
+            this.edgeTB_end.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withoutMinus);
             // 
             // vertexTB_Y
             // 
@@ -1289,7 +1319,9 @@
             this.vertexTB_Y.Name = "vertexTB_Y";
             this.vertexTB_Y.Size = new System.Drawing.Size(33, 20);
             this.vertexTB_Y.TabIndex = 5;
-            this.vertexTB_Y.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.vertexTB_Y_KeyPress);
+            this.vertexTB_Y.Click += new System.EventHandler(this.textBox_selection);
+            this.vertexTB_Y.Enter += new System.EventHandler(this.textBox_selection);
+            this.vertexTB_Y.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withMinus);
             // 
             // edgeTB_start
             // 
@@ -1297,7 +1329,9 @@
             this.edgeTB_start.Name = "edgeTB_start";
             this.edgeTB_start.Size = new System.Drawing.Size(33, 20);
             this.edgeTB_start.TabIndex = 13;
-            this.edgeTB_start.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edgeTB_start_KeyPress);
+            this.edgeTB_start.Click += new System.EventHandler(this.textBox_selection);
+            this.edgeTB_start.Enter += new System.EventHandler(this.textBox_selection);
+            this.edgeTB_start.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withoutMinus);
             // 
             // vertexTB_Z
             // 
@@ -1305,7 +1339,9 @@
             this.vertexTB_Z.Name = "vertexTB_Z";
             this.vertexTB_Z.Size = new System.Drawing.Size(33, 20);
             this.vertexTB_Z.TabIndex = 6;
-            this.vertexTB_Z.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.vertexTB_Z_KeyPress);
+            this.vertexTB_Z.Click += new System.EventHandler(this.textBox_selection);
+            this.vertexTB_Z.Enter += new System.EventHandler(this.textBox_selection);
+            this.vertexTB_Z.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyPress_withMinus);
             // 
             // DeleteVertexButton
             // 
@@ -1368,9 +1404,9 @@
             // 
             this.StartTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.StartTab.Controls.Add(this.label21);
-            this.StartTab.Location = new System.Drawing.Point(4, 5);
+            this.StartTab.Location = new System.Drawing.Point(4, 24);
             this.StartTab.Name = "StartTab";
-            this.StartTab.Size = new System.Drawing.Size(318, 591);
+            this.StartTab.Size = new System.Drawing.Size(318, 572);
             this.StartTab.TabIndex = 4;
             this.StartTab.Text = "StartTab";
             // 
@@ -1382,7 +1418,7 @@
             this.label21.Location = new System.Drawing.Point(0, 0);
             this.label21.Margin = new System.Windows.Forms.Padding(0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(318, 591);
+            this.label21.Size = new System.Drawing.Size(318, 572);
             this.label21.TabIndex = 0;
             this.label21.Text = "Начни работу с пункта \"Файл\" :)";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1527,13 +1563,13 @@
             this.tss_SZ.Text = "Sz=";
             this.tss_SZ.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // printDialog1
+            // printDialog
             // 
-            this.printDialog1.UseEXDialog = true;
+            this.printDialog.UseEXDialog = true;
             // 
-            // printDocument1
+            // printDocument
             // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // MainForm
             // 
@@ -1716,8 +1752,8 @@
         private System.Windows.Forms.ToolStripStatusLabel tss_SY;
         private System.Windows.Forms.ToolStripStatusLabel tss_SZ;
         private System.Windows.Forms.ToolStripMenuItem CreateToolStripMenuItem;
-        private System.Windows.Forms.PrintDialog printDialog1;
-        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintDialog printDialog;
+        private System.Drawing.Printing.PrintDocument printDocument;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
