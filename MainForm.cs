@@ -87,16 +87,7 @@ namespace GraphicalEditor
         /// </summary>
         /// <param name="dg">DataGridView для пересчёта количества элементов</param>
         /// <param name="e">Просто е</param>
-        private void gridCounter(DataGridView dg, DataGridViewRowsRemovedEventArgs e) {
-            for (int i = 0; i < dg.RowCount; i++)
-            {
-                DataGridViewRowHeaderCell cell = dg.Rows[i].HeaderCell;
-                cell.Value = (i + 1).ToString();
-                dg.Rows[i].HeaderCell = cell;
-            }
-        }
-        private void gridCounter(DataGridView dg, DataGridViewRowsAddedEventArgs e)
-        {
+        private void gridCounter(DataGridView dg, EventArgs e) {
             for (int i = 0; i < dg.RowCount; i++)
             {
                 DataGridViewRowHeaderCell cell = dg.Rows[i].HeaderCell;
@@ -1032,7 +1023,7 @@ namespace GraphicalEditor
                     { 0, 0, 1, 0 },
                     { Dx, Dy, Dz, 1 }
                 };
-                double[,] сoord = new double[1, 4];//координаты точки
+                double[,] сoord = new double[1, 4]; //координаты точки
 
                 for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл свдига
                 {
@@ -1087,7 +1078,7 @@ namespace GraphicalEditor
                     { 0, 0, 1, 0 }, 
                     { Dx, Dy, Dz, 1 }
                 };
-                double[,] coord = new double[1, 4];//координаты точки
+                double[,] coord = new double[1, 4]; //координаты точки
 
                 for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл свдига
                 {
@@ -1111,7 +1102,7 @@ namespace GraphicalEditor
                 editTSS(tss_TZ, readTSS(tss_TZ) + Dz);
             }
 
-            vertexes_norm= normalizationCoordinates(vertexes_arr);
+            vertexes_norm = normalizationCoordinates(vertexes_arr);
             if (normalizationCheck(vertexes_norm) != true)
             {
                 coefficient(vertexes_arr);
@@ -1132,7 +1123,7 @@ namespace GraphicalEditor
                 { 0, 0, 1, 0 }, 
                 { Convert.ToDouble(ShiftAccuratelyOXBox.Text), Convert.ToDouble(ShiftAccuratelyOYBox.Text), Convert.ToDouble(ShiftAccuratelyOZBox.Text), 1 }
             };
-            double[,] сoord = new double[1, 4];//координаты точки
+            double[,] сoord = new double[1, 4]; //координаты точки
 
             for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл свдига
             {
@@ -1205,7 +1196,7 @@ namespace GraphicalEditor
 
                 double[,] сoord = new double[1, 4]; //координаты точки
 
-                for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл масштабирования
+                for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл поворота
                 {
                     сoord[0, 0] = vertexes_arr[i, 1];
                     сoord[0, 1] = vertexes_arr[i, 2];
@@ -1275,9 +1266,9 @@ namespace GraphicalEditor
                     { 0, 0, 0, 1 }
                 };
 
-                double[,] сoord = new double[1, 4];//координаты точки
+                double[,] сoord = new double[1, 4]; //координаты точки
 
-                for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл масштабирования
+                for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл поворота
                 {
                     сoord[0, 0] = vertexes_arr[i, 1];
                     сoord[0, 1] = vertexes_arr[i, 2];
@@ -1337,9 +1328,9 @@ namespace GraphicalEditor
                 { 0, 0, 0, 1 }
             };
 
-            double[,] сoord = new double[1, 4];//координаты точки
+            double[,] сoord = new double[1, 4]; //координаты точки
 
-            for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл масштабирования
+            for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл поворота
             {
                 сoord[0, 0] = vertexes_arr[i, 1];
                 сoord[0, 1] = vertexes_arr[i, 2];
@@ -1404,7 +1395,7 @@ namespace GraphicalEditor
                             { 0, 0, Sz, 0 },
                             { 0, 0, 0, 1 }
                         };
-                        double[,] сoord = new double[1, 4];//координаты точки
+                        double[,] сoord = new double[1, 4]; //координаты точки
 
                         for (int i = 0; vertexes_arr[i, 0] == -1; i++) //цикл масштабирования
                         {
