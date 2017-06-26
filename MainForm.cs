@@ -277,18 +277,15 @@ namespace GraphicalEditor
 
             for (int i = 0; edges[i, 0] == -1; i++)
             {
-                int y1, z1, y2, z2;
-                Point p1, p2;
+                int y1 = (int)Math.Truncate(vertexes[Convert.ToInt32(edges[i, 1]) - 1, 2] * horizon_max);
+                int z1 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 1]) - 1, 3] * -1 * vertical_max));
+                int y2 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i,2]-1),2] * horizon_max));
+                int z2 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 2]-1), 3] * -1 * vertical_max));
 
-                y1 = (int)Math.Truncate(vertexes[Convert.ToInt32(edges[i, 1]) - 1, 2] * horizon_max);
-                z1 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 1]) - 1, 3] * -1 * vertical_max));
-                y2 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i,2]-1),2] * horizon_max));
-                z2 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 2]-1), 3] * -1 * vertical_max));
-
-                p1 = new Point(y1, z1);
-                p2 = new Point(y2, z2);
+                Point point1 = new Point(y1, z1);
+                Point point2 = new Point(y2, z2);
                 yoz.SmoothingMode = SmoothingMode.HighQuality;
-                yoz.DrawLine(new Pen(lineColor, 1), p1, p2);
+                yoz.DrawLine(new Pen(lineColor, 1), point1, point2);
             }
             yoz.Dispose();
             yozPic.Invalidate();
@@ -300,18 +297,15 @@ namespace GraphicalEditor
 
             for (int i = 0; edges[i, 0] == -1; i++)
             {
-                int x1, z1, x2, z2;
-                Point p1, p2;
+                int x1 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 1]) - 1, 1] * horizon_max));
+                int z1 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 1]) - 1, 3] * -1 * vertical_max));
+                int x2 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 2] - 1), 1] * horizon_max));
+                int z2 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 2] - 1), 3] * -1 * vertical_max));
 
-                x1 = (int)Math.Truncate(vertexes[Convert.ToInt32(edges[i, 1]) - 1, 1] * horizon_max);
-                z1 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 1]) - 1, 3] * -1 * vertical_max));
-                x2 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 2] - 1), 1] * horizon_max));
-                z2 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 2] - 1), 3] * -1 * vertical_max));
-
-                p1 = new Point(x1, z1);
-                p2 = new Point(x2, z2);
+                Point point1 = new Point(x1, z1);
+                Point point2 = new Point(x2, z2);
                 xoz.SmoothingMode = SmoothingMode.HighQuality;
-                xoz.DrawLine(new Pen(lineColor, 1), p1, p2);
+                xoz.DrawLine(new Pen(lineColor, 1), point1, point2);
             }
             xoz.Dispose();
             xozPic.Invalidate();
@@ -325,18 +319,15 @@ namespace GraphicalEditor
 
             for (int i = 0; edges[i, 0] == -1; i++)
             {
-                int x1, y1, x2, y2;
-                Point p1, p2;
+                int x1 = (int)Math.Truncate(vertexes[Convert.ToInt32(edges[i, 1] - 1), 1] * horizon_max);
+                int y1 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 1] - 1), 2] * 1 * vertical_max));
+                int x2 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 2] - 1), 1] * horizon_max));
+                int y2 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 2] - 1), 2] * 1 * vertical_max));
 
-                x1 = (int)Math.Truncate(vertexes[Convert.ToInt32(edges[i, 1] - 1), 1] * horizon_max);
-                y1 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 1] - 1), 2] * 1 * vertical_max));
-                x2 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 2] - 1), 1] * horizon_max));
-                y2 = (int)(Math.Truncate(vertexes[Convert.ToInt32(edges[i, 2] - 1), 2] * 1 * vertical_max));
-                
-                p1 = new Point(y1, x1);
-                p2 = new Point(y2, x2);
+                Point point1 = new Point(y1, x1);
+                Point point2 = new Point(y2, x2);
                 xoy.SmoothingMode = SmoothingMode.HighQuality;
-                xoy.DrawLine(new Pen(lineColor, 1), p1, p2);
+                xoy.DrawLine(new Pen(lineColor, 1), point1, point2);
             }
             xoy.Dispose();
             xoyPic.Invalidate();
@@ -352,37 +343,63 @@ namespace GraphicalEditor
             //Матрица для построенния изометрии
             double alpha_r = 45 * (Math.PI / 180);
             double beta_r = 35.26439 * Math.PI / 180;
-            double[,] izom_matrix = new double[4, 4]
+            double[,] izomMatrix = new double[4, 4]
             {
-                    {-1*Math.Cos(alpha_r), -1*Math.Sin(alpha_r)*Math.Sin(beta_r), 0, 0 },
-                    {Math.Sin(alpha_r), -1*Math.Cos(alpha_r)*Math.Sin(beta_r), 0, 0 },
+                    {Math.Cos(alpha_r), Math.Sin(alpha_r)*Math.Sin(beta_r), 0, 0 },
                     {0, Math.Cos(alpha_r), 0, 0 },
+                    {Math.Sin(alpha_r), -1*Math.Cos(alpha_r)*Math.Sin(beta_r), 0, 0 },
                     {0, 0, 0, 1 }
+            };
+
+            //Перевод градусов в радианы
+            double alpha = 180 * Math.PI / 180;
+            double beta = 270 * Math.PI / 180;
+
+            //Поворот относительно оси Z
+            double[,] Rz = new double[4, 4]
+            {
+                {Math.Cos(alpha), Math.Sin(alpha), 0, 0 },
+                {-1*Math.Sin(alpha), Math.Cos(alpha), 0, 0 },
+                {0, 0, 1, 0 },
+                {0, 0, 0, 1 }
+            };
+
+            //Поворот относительно оси X
+            double[,] Rx = new double[4, 4]
+            {
+                {1, 0, 0, 0 },
+                {0, Math.Cos(beta), Math.Sin(beta), 0 },
+                {0, -1*Math.Sin(beta), Math.Cos(beta), 0 },
+                {0, 0, 0, 1 }
             };
 
             double[,] startEdgeCoord = new double[1, 4]; //Координаты начала ребра
             double[,] endEdgeCoord = new double[1, 4]; //Координаты конца ребра
 
-            for (int i = 0; edges[i,0] == -1; i++)
+            for (int i = 0; edges[i, 0] == -1; i++)
             {
                 startEdgeCoord[0, 0] = vertexes[Convert.ToInt32(edges[i, 1] - 1), 1]; //Запоминаем координаты вершин
                 startEdgeCoord[0, 1] = vertexes[Convert.ToInt32(edges[i, 1] - 1), 2];
                 startEdgeCoord[0, 2] = vertexes[Convert.ToInt32(edges[i, 1] - 1), 3];
                 startEdgeCoord[0, 3] = 1;
-
                 endEdgeCoord[0, 0] = vertexes[Convert.ToInt32(edges[i, 2] - 1), 1]; //Запоминаем координаты вершин
                 endEdgeCoord[0, 1] = vertexes[Convert.ToInt32(edges[i, 2] - 1), 2];
                 endEdgeCoord[0, 2] = vertexes[Convert.ToInt32(edges[i, 2] - 1), 3];
                 endEdgeCoord[0, 3] = 1;
 
-                startEdgeCoord = matrixMultiply(startEdgeCoord, izom_matrix);
-                endEdgeCoord = matrixMultiply(endEdgeCoord, izom_matrix);
+                startEdgeCoord = matrixMultiply(startEdgeCoord, Rz); //Поворачиваем
+                startEdgeCoord = matrixMultiply(startEdgeCoord, Rx);
+                startEdgeCoord = matrixMultiply(startEdgeCoord, izomMatrix); //и умножаем на общую матрицу изометрии
 
-                Point p1 = new Point((int)(Math.Truncate(horizon_max * 0.5 + startEdgeCoord[0, 0] * horizon_max * 0.5)), (int)((-1) * (Math.Truncate(vertical_max * 0.5 + startEdgeCoord[0, 1] * vertical_max * 0.5))));
-                Point p2 = new Point((int)(Math.Truncate(horizon_max * 0.5 + endEdgeCoord[0, 0] * horizon_max * 0.5)), (int)((-1) * (Math.Truncate(vertical_max * 0.5 + endEdgeCoord[0, 1] * vertical_max * 0.5))));
-              
+                endEdgeCoord = matrixMultiply(endEdgeCoord, Rz);
+                endEdgeCoord = matrixMultiply(endEdgeCoord, Rx);
+                endEdgeCoord = matrixMultiply(endEdgeCoord, izomMatrix);
+
+                Point point1 = new Point((int)(Math.Truncate(horizon_max * 0.5 + startEdgeCoord[0, 0] * horizon_max * 0.5)), (int)((-1) * (Math.Truncate(vertical_max * 0.5 + startEdgeCoord[0, 1] * vertical_max * 0.5))));
+                Point point2 = new Point((int)(Math.Truncate(horizon_max * 0.5 + endEdgeCoord[0, 0] * horizon_max * 0.5)), (int)((-1) * (Math.Truncate(vertical_max * 0.5 + endEdgeCoord[0, 1] * vertical_max * 0.5))));
+
                 izom.SmoothingMode = SmoothingMode.HighQuality;
-                izom.DrawLine(new Pen(lineColor, 1), p1, p2);
+                izom.DrawLine(new Pen(lineColor, 1), point1, point2);
             }
             izom.Dispose();
             izomPic.Invalidate();

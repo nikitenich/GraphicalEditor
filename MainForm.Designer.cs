@@ -153,6 +153,7 @@
             this.tss_SZ = new System.Windows.Forms.ToolStripStatusLabel();
             this.printDialog = new System.Windows.Forms.PrintDialog();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -1095,9 +1096,9 @@
             // 
             this.CreateTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.CreateTab.Controls.Add(this.CreateGroupBox);
-            this.CreateTab.Location = new System.Drawing.Point(4, 5);
+            this.CreateTab.Location = new System.Drawing.Point(4, 24);
             this.CreateTab.Name = "CreateTab";
-            this.CreateTab.Size = new System.Drawing.Size(318, 591);
+            this.CreateTab.Size = new System.Drawing.Size(318, 572);
             this.CreateTab.TabIndex = 3;
             this.CreateTab.Text = "Создать";
             // 
@@ -1128,7 +1129,7 @@
             this.CreateGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CreateGroupBox.Location = new System.Drawing.Point(0, 0);
             this.CreateGroupBox.Name = "CreateGroupBox";
-            this.CreateGroupBox.Size = new System.Drawing.Size(318, 591);
+            this.CreateGroupBox.Size = new System.Drawing.Size(318, 572);
             this.CreateGroupBox.TabIndex = 22;
             this.CreateGroupBox.TabStop = false;
             this.CreateGroupBox.Text = "Создать";
@@ -1404,9 +1405,9 @@
             // 
             this.StartTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(207)))), ((int)(((byte)(217)))));
             this.StartTab.Controls.Add(this.label21);
-            this.StartTab.Location = new System.Drawing.Point(4, 24);
+            this.StartTab.Location = new System.Drawing.Point(4, 5);
             this.StartTab.Name = "StartTab";
-            this.StartTab.Size = new System.Drawing.Size(318, 572);
+            this.StartTab.Size = new System.Drawing.Size(318, 591);
             this.StartTab.TabIndex = 4;
             this.StartTab.Text = "StartTab";
             // 
@@ -1418,7 +1419,7 @@
             this.label21.Location = new System.Drawing.Point(0, 0);
             this.label21.Margin = new System.Windows.Forms.Padding(0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(318, 572);
+            this.label21.Size = new System.Drawing.Size(318, 591);
             this.label21.TabIndex = 0;
             this.label21.Text = "Начни работу с пункта \"Файл\" :)";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1570,6 +1571,10 @@
             // printDocument
             // 
             this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
             // 
             // MainForm
             // 
@@ -1765,6 +1770,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn x;
         private System.Windows.Forms.DataGridViewTextBoxColumn y;
         private System.Windows.Forms.DataGridViewTextBoxColumn z;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }
 
